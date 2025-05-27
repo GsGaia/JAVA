@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b36d221-8b15-4d71-ac7f-382bfd9d0fa0" name="Changes" comment="Oq falta">
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/fiap/Gs/Gaia/Dto/Request/LocationRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/fiap/Gs/Gaia/Dto/Request/ResquestionRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/fiap/Gs/Gaia/Dto/Request/UserResquest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/fiap/Gs/Gaia/Dto/RequestionResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/fiap/Gs/Gaia/Models/Users.java" afterDir="false" />
+    <list default="true" id="0b36d221-8b15-4d71-ac7f-382bfd9d0fa0" name="Changes" comment="Quase pronto o Service">
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules/Gaia.main.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Exemplo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/fiap/Gs/Gaia/Controller/UsersController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.13/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.13/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.13/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.13/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.13/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.13/executionHistory/executionHistory.lock" afterDir="false" />
@@ -18,20 +17,34 @@
       <change beforePath="$PROJECT_DIR$/.gradle/8.13/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.13/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/br/com/fiap/Gs/Gaia/Dto/UserResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/br/com/fiap/Gs/Gaia/Dto/UserResponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/br/com/fiap/Gs/Gaia/Dto/UserResquest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/br/com/fiap/Gs/Gaia/Exception/ConexaoPostgres.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/br/com/fiap/Gs/Gaia/Models/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/br/com/fiap/Gs/Gaia/Repository/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/br/com/fiap/Gs/Gaia/Repository/UserRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/br/com/fiap/Gs/Gaia/Controller/LocationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/br/com/fiap/Gs/Gaia/Controller/LocationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/br/com/fiap/Gs/Gaia/Controller/RequestionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/br/com/fiap/Gs/Gaia/Controller/RequestionController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/br/com/fiap/Gs/Gaia/Controller/UserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/br/com/fiap/Gs/Gaia/Dto/UserResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/br/com/fiap/Gs/Gaia/Enum/TypeUser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/br/com/fiap/Gs/Gaia/Models/Users.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/br/com/fiap/Gs/Gaia/Models/Users.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/br/com/fiap/Gs/Gaia/Repository/UserRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/br/com/fiap/Gs/Gaia/Service/UserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/problems/problems-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/problems/problems-report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Location.class.uniqueId1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/LocationRepository.class.uniqueId5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Requestion.class.uniqueId0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/RequestionRepository.class.uniqueId3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/UserRepository.class.uniqueId2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/UserResponse.class.uniqueId4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/UserResquest.class.uniqueId6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Users.class.uniqueId7" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/fiap/Gs/Gaia/Dto/UserResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/fiap/Gs/Gaia/Dto/UserResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/fiap/Gs/Gaia/Dto/UserResquest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/fiap/Gs/Gaia/Dto/LocationResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/fiap/Gs/Gaia/Models/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/fiap/Gs/Gaia/Models/Location.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/fiap/Gs/Gaia/Models/Requestion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/fiap/Gs/Gaia/Models/Requestion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/fiap/Gs/Gaia/Models/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/fiap/Gs/Gaia/Repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/fiap/Gs/Gaia/Repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/fiap/Gs/Gaia/Controller/LocationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/fiap/Gs/Gaia/Controller/LocationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/fiap/Gs/Gaia/Controller/RequestionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/fiap/Gs/Gaia/Controller/RequestionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/fiap/Gs/Gaia/Controller/UserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/fiap/Gs/Gaia/Dto/Request/UserResquest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/fiap/Gs/Gaia/Dto/Request/UsersResquest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/fiap/Gs/Gaia/Dto/UserResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/fiap/Gs/Gaia/Dto/UsersResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/fiap/Gs/Gaia/Enum/TypeUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/fiap/Gs/Gaia/Enum/TypeUsers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/fiap/Gs/Gaia/Models/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/fiap/Gs/Gaia/Models/Users.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/fiap/Gs/Gaia/Repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/fiap/Gs/Gaia/Repository/UsersRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/fiap/Gs/Gaia/Service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/fiap/Gs/Gaia/Service/UsersService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,14 +81,21 @@
   "keyToString": {
     "Gradle.JAVA [:br.com.fiap.Gs.Gaia.Exception.ConexaoPostgres.main()].executor": "Run",
     "Gradle.JAVA [:br.com.fiap.Gs.Gaia.GaiaApplication.main()].executor": "Run",
+    "Gradle.JAVA [dependencies].executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "last_opened_file_path": "/home/luiz/Área de trabalho/JAVA",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="br.com.fiap.Gs.Gaia.Service" />
+    </key>
+  </component>
   <component name="RunManager" selected="Application.GaiaApplication">
     <configuration name="ConexaoPostgres" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="br.com.fiap.Gs.Gaia.Exception.ConexaoPostgres" />
@@ -103,6 +123,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="JAVA [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="dependencies" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
         <option name="Make" enabled="true" />
@@ -114,6 +156,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.JAVA [dependencies]" />
         <item itemvalue="Application.GaiaApplication" />
         <item itemvalue="Application.ConexaoPostgres" />
       </list>
@@ -135,11 +178,20 @@
       <option name="project" value="LOCAL" />
       <updated>1748358516407</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Quase pronto o Service">
+      <option name="closed" value="true" />
+      <created>1748373770036</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1748373770036</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Oq falta" />
-    <option name="LAST_COMMIT_MESSAGE" value="Oq falta" />
+    <MESSAGE value="Quase pronto o Service" />
+    <option name="LAST_COMMIT_MESSAGE" value="Quase pronto o Service" />
   </component>
 </project>

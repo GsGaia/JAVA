@@ -1,6 +1,6 @@
 package br.com.fiap.Gs.Gaia.Models;
 
-import br.com.fiap.Gs.Gaia.Enum.TypeUser;
+import br.com.fiap.Gs.Gaia.Enum.TypeUsers;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -14,17 +14,17 @@ public class Users {
     private String name;
     private String email;
     private String password;
-    private int cpf;
+    private String cpf;
 
     private LocalDate creationDate;
-    private TypeUser role;
+    private TypeUsers role;
 
     //@OneToMany
     //@JoinColumn(name = "requestion_id")
     //private Requestion requestion;
 
 
-    public Users(Long idUsers, String name, String email, String password, int cpf, LocalDate creationDate, TypeUser role) {
+    public Users(Long idUsers, String name, String email, String password, String cpf, LocalDate creationDate, TypeUsers role) {
         this.idUsers = idUsers;
         this.name = name;
         this.email = email;
@@ -66,11 +66,11 @@ public class Users {
         this.password = password;
     }
 
-    public int getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
@@ -82,11 +82,11 @@ public class Users {
         this.creationDate = creationDate;
     }
 
-    public TypeUser getRole() {
+    public TypeUsers getRole() {
         return role;
     }
 
-    public void setRole(TypeUser role) {
+    public void setRole(TypeUsers role) {
         this.role = role;
     }
 }

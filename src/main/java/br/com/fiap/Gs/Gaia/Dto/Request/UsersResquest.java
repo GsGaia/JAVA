@@ -1,17 +1,21 @@
 package br.com.fiap.Gs.Gaia.Dto.Request;
 
-import br.com.fiap.Gs.Gaia.Enum.TypeUser;
+import br.com.fiap.Gs.Gaia.Enum.TypeUsers;
+import jakarta.persistence.Column;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.*;
 import org.hibernate.validator.constraints.br.CPF;
 
 import java.time.LocalDate;
 
-public class UserResquest {
+public class UsersResquest {
     @NotNull
     @Size(min = 3, max = 250, message = "O nome está fora dos padrões")
     private String name;
 
-    @Email
+    @Email(message = "Email inválido")
+    @NotBlank(message = "Email é obrigatório")
     private String email;
 
     @NotNull
@@ -19,18 +23,20 @@ public class UserResquest {
     private String password;
 
     @CPF
-    private int cpf;
+    private String cpf;
 
     @FutureOrPresent
+    @Column(name = "creation_date")
     private LocalDate creationDate;
 
-    @NotEmpty
-    private TypeUser role;
+    @NotNull(message = "O tipo de usuário é obrigatório.")
+    @Enumerated(EnumType.STRING)
+    private TypeUsers role;
 
-    public UserResquest() {
+    public UsersResquest() {
     }
 
-    public UserResquest(String name, String email, String password, int cpf, LocalDate creationDate, TypeUser role) {
+    public UsersResquest(String name, String email, String password, String cpf, LocalDate creationDate, TypeUsers role) {
         this.name = name;
         this.email = email;
         this.password = password;
@@ -63,11 +69,11 @@ public class UserResquest {
         this.password = password;
     }
 
-    public int getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
@@ -79,11 +85,11 @@ public class UserResquest {
         this.creationDate = creationDate;
     }
 
-    public TypeUser getRole() {
+    public TypeUsers getRole() {
         return role;
     }
 
-    public void setRole(TypeUser role) {
+    public void setRole(TypeUsers role) {
         this.role = role;
     }
 }

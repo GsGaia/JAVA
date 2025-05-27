@@ -30,6 +30,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc'						// JDBC (para DataSource)
 	implementation 'org.springframework.boot:spring-boot-starter-validation'				// Bean Validation (javax.validation)
 
+
 	// --- Banco de Dados ---
 	runtimeOnly 'org.postgresql:postgresql'													// Driver do PostgreSQL
 
@@ -37,12 +38,12 @@ dependencies {
 	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.5.0'				// Geração automática da documentação Swagger
 
 	// --- JWT ---
-	implementation 'io.jsonwebtoken:jjwt-api:0.11.5'         								// API para criação e parsing de JWT
-	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5'											// Implementação da lib JWT
-	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.5'										// Suporte a JSON com Jackson para JWT
+	//implementation 'io.jsonwebtoken:jjwt-api:0.11.5'         								// API para criação e parsing de JWT
+	//runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5'											// Implementação da lib JWT
+	//runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.5'										// Suporte a JSON com Jackson para JWT
 
 	// --- Segurança com JWT (opcional, se usar Spring Security) ---
-	implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'	// Permite usar JWT como OAuth2 resource server
+	//implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'	// Permite usar JWT como OAuth2 resource server
 
 	// --- Processador de Anotações ---
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'		// Para processar configurações com @ConfigurationProperties
