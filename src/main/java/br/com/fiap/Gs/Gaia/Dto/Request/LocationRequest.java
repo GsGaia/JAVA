@@ -1,48 +1,37 @@
-package br.com.fiap.Gs.Gaia.Models;
+package br.com.fiap.Gs.Gaia.Dto.Request;
 
 import br.com.fiap.Gs.Gaia.Enum.TypeStation;
 import br.com.fiap.Gs.Gaia.Enum.TypeStatusLocation;
-import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 import java.time.LocalDate;
-import java.util.List;
 
-@Entity
-public class Location {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idLocation;
-
-    private TypeStation state;
+public class LocationRequest {
+    @NotNull
+    @Size(min= 2, max=50, message = "O nome da cidade está fora dos padrões")
     private String city;
 
     private LocalDate startAccident;
     private LocalDate endAccident;
 
+    @NotEmpty
+    private TypeStation state;
+
+    @NotEmpty
     private TypeStatusLocation statusLocation;
 
-    //@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    //private List<Requestion> requestionList;
-
-
-    public Location() {
+    public LocationRequest() {
     }
 
-    public Location(Long idLocation, TypeStation state, String city, LocalDate startAccident, LocalDate endAccident, TypeStatusLocation statusLocation) {
-        this.idLocation = idLocation;
+    public LocationRequest(TypeStation state, String city, LocalDate startAccident, LocalDate endAccident, TypeStatusLocation statusLocation) {
         this.state = state;
         this.city = city;
         this.startAccident = startAccident;
         this.endAccident = endAccident;
         this.statusLocation = statusLocation;
-    }
-
-    public Long getIdLocation() {
-        return idLocation;
-    }
-
-    public void setIdLocation(Long idLocation) {
-        this.idLocation = idLocation;
     }
 
     public TypeStation getState() {
