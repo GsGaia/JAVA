@@ -1,0 +1,40 @@
+Manifest-Version: 1.0
+Created-By: Apache Maven Bundle Plugin
+Build-Jdk-Spec: 21
+Specification-Title: JBoss Logging 3
+Specification-Version: 3.6
+Specification-Vendor: JBoss by Red Hat
+Implementation-Title: JBoss Logging 3
+Implementation-Version: 3.6.1.Final
+Implementation-Vendor: JBoss by Red Hat
+Implementation-URL: http://www.jboss.org
+Java-Vendor: Red Hat, Inc.
+Java-Version: 21.0.4
+Os-Arch: amd64
+Os-Name: Linux
+Os-Version: 6.10.7-200.fc40.x86_64
+Scm-Connection: scm:git:git://github.com/jboss-logging/jboss-logging.git
+Scm-Revision: 086ff9fdd86892ea67ef748fea69a99f3a6bc57d
+Scm-Url: https://github.com/jboss-logging/jboss-logging/tree/main/
+Automatic-Module-Name: org.jboss.logging
+Bnd-LastModified: 1725896104438
+Bundle-Description: The JBoss Logging Framework
+Bundle-DocURL: http://www.jboss.org
+Bundle-License: https://repository.jboss.org/licenses/apache-2.0.txt
+Bundle-ManifestVersion: 2
+Bundle-Name: JBoss Logging 3
+Bundle-SymbolicName: org.jboss.logging.jboss-logging
+Bundle-Vendor: JBoss by Red Hat
+Bundle-Version: 3.6.1.Final
+Export-Package: org.jboss.logging;version="3.6.1.Final"
+Import-Package: org.apache.log4j;resolution:=optional;version="[1.2,2)",
+ org.apache.logging.log4j;resolution:=optional;version="[2.20,3)",org.ap
+ ache.logging.log4j.message;resolution:=optional;version="[2.22,3)",org.
+ apache.logging.log4j.spi;resolution:=optional;version="[2.20,3)",org.jb
+ oss.logmanager;resolution:=optional,org.slf4j;resolution:=optional;vers
+ ion="[2.0,3)",org.slf4j.spi;resolution:=optional;version="[2.0,3)",org.
+ apache.log4j.config;resolution:=optional;version="[1.2,2)"
+Originally-Created-By: Apache Maven Bundle Plugin
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=11))"
+Tool: Bnd-5.1.1.202006162103
+

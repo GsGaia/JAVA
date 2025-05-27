@@ -1,0 +1,298 @@
+Manifest-Version: 1.0
+Bundle-License: https://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-ManifestVersion: 2
+Bundle-Name: tomcat-embed-core
+Bundle-SymbolicName: org.apache.tomcat-embed-core
+Bundle-Version: 10.1.41
+Export-Package: jakarta.security.auth.message;version="3.0";uses:="jav
+ ax.security.auth,javax.security.auth.login",jakarta.security.auth.mes
+ sage.callback;version="3.0";uses:="javax.crypto,javax.security.auth,j
+ avax.security.auth.callback,javax.security.auth.x500",jakarta.securit
+ y.auth.message.config;version="3.0";uses:="jakarta.security.auth.mess
+ age,jakarta.security.auth.message.module,javax.security.auth,javax.se
+ curity.auth.callback",jakarta.security.auth.message.module;version="3
+ .0";uses:="jakarta.security.auth.message,javax.security.auth.callback
+ ",jakarta.servlet;version="6.0";uses:="jakarta.servlet.annotation,jak
+ arta.servlet.descriptor",jakarta.servlet.annotation;version="6.0";use
+ s:="jakarta.servlet",jakarta.servlet.descriptor;version="6.0",jakarta
+ .servlet.http;version="6.0";uses:="jakarta.servlet",jakarta.servlet.r
+ esources;version="6.0",org.apache.catalina;uses:="jakarta.servlet,jak
+ arta.servlet.descriptor,jakarta.servlet.http,javax.management,javax.n
+ aming,org.apache.catalina.connector,org.apache.catalina.deploy,org.ap
+ ache.catalina.mapper,org.apache.catalina.startup,org.apache.juli.logg
+ ing,org.apache.tomcat,org.apache.tomcat.util.buf,org.apache.tomcat.ut
+ il.descriptor.web,org.apache.tomcat.util.file,org.apache.tomcat.util.
+ http,org.ietf.jgss";version="10.1.41",org.apache.catalina.authenticat
+ or;uses:="jakarta.security.auth.message.config,jakarta.servlet,jakart
+ a.servlet.http,org.apache.catalina,org.apache.catalina.connector,org.
+ apache.catalina.util,org.apache.catalina.valves,org.apache.tomcat.uti
+ l.buf,org.apache.tomcat.util.descriptor.web,org.apache.tomcat.util.re
+ s";version="10.1.41",org.apache.catalina.authenticator.jaspic;uses:="
+ jakarta.security.auth.message,jakarta.security.auth.message.config,ja
+ karta.security.auth.message.module,jakarta.servlet.http,javax.securit
+ y.auth,javax.security.auth.callback,org.apache.catalina,org.apache.to
+ mcat.util.res";version="10.1.41",org.apache.catalina.connector;uses:=
+ "jakarta.servlet,jakarta.servlet.http,javax.security.auth,org.apache.
+ catalina,org.apache.catalina.core,org.apache.catalina.mapper,org.apac
+ he.catalina.util,org.apache.coyote,org.apache.tomcat.util.buf,org.apa
+ che.tomcat.util.http,org.apache.tomcat.util.net,org.apache.tomcat.uti
+ l.res";version="10.1.41",org.apache.catalina.core;uses:="jakarta.serv
+ let,jakarta.servlet.descriptor,jakarta.servlet.http,javax.management,
+ javax.naming,org.apache.catalina,org.apache.catalina.connector,org.ap
+ ache.catalina.deploy,org.apache.catalina.mapper,org.apache.catalina.s
+ tartup,org.apache.catalina.util,org.apache.coyote,org.apache.juli.log
+ ging,org.apache.naming,org.apache.tomcat,org.apache.tomcat.util.buf,o
+ rg.apache.tomcat.util.descriptor.web,org.apache.tomcat.util.http,org.
+ apache.tomcat.util.http.fileupload,org.apache.tomcat.util.res,org.apa
+ che.tomcat.util.threads";version="10.1.41",org.apache.catalina.deploy
+ ;uses:="org.apache.catalina,org.apache.catalina.util,org.apache.tomca
+ t.util.descriptor.web";version="10.1.41",org.apache.catalina.filters;
+ uses:="jakarta.servlet,jakarta.servlet.http,org.apache.juli.logging,o
+ rg.apache.tomcat.util.res";version="10.1.41",org.apache.catalina.load
+ er;uses:="org.apache.catalina,org.apache.catalina.util,org.apache.jul
+ i,org.apache.tomcat,org.apache.tomcat.util.res,org.apache.tomcat.util
+ .security";version="10.1.41",org.apache.catalina.manager;uses:="jakar
+ ta.servlet,jakarta.servlet.http,javax.management,javax.naming,org.apa
+ che.catalina,org.apache.catalina.util,org.apache.tomcat.util.modeler,
+ org.apache.tomcat.util.res";version="10.1.41",org.apache.catalina.man
+ ager.host;uses:="jakarta.servlet,jakarta.servlet.http,org.apache.cata
+ lina,org.apache.tomcat.util.res";version="10.1.41",org.apache.catalin
+ a.manager.util;uses:="jakarta.servlet.http,org.apache.catalina";versi
+ on="10.1.41",org.apache.catalina.mapper;uses:="jakarta.servlet.http,o
+ rg.apache.catalina,org.apache.catalina.util,org.apache.tomcat.util.bu
+ f";version="10.1.41",org.apache.catalina.mbeans;uses:="javax.manageme
+ nt,javax.naming,org.apache.catalina,org.apache.catalina.connector,org
+ .apache.catalina.core,org.apache.tomcat.util.descriptor.web,org.apach
+ e.tomcat.util.modeler,org.apache.tomcat.util.res";version="10.1.41",o
+ rg.apache.catalina.realm;uses:="javax.management,javax.naming,javax.n
+ aming.directory,javax.net.ssl,javax.security.auth,javax.security.auth
+ .callback,javax.security.auth.login,javax.security.auth.spi,org.apach
+ e.catalina,org.apache.catalina.connector,org.apache.catalina.util,org
+ .apache.juli.logging,org.apache.tomcat.util.collections,org.apache.to
+ mcat.util.descriptor.web,org.apache.tomcat.util.digester,org.apache.t
+ omcat.util.res,org.ietf.jgss";version="10.1.41",org.apache.catalina.s
+ ecurity;uses:="jakarta.servlet,org.apache.catalina";version="10.1.41"
+ ,org.apache.catalina.servlets;uses:="jakarta.servlet,jakarta.servlet.
+ http,javax.sql,javax.xml.parsers,javax.xml.transform,org.apache.catal
+ ina,org.apache.catalina.util,org.apache.tomcat,org.apache.tomcat.util
+ .http,org.apache.tomcat.util.http.parser,org.apache.tomcat.util.res,o
+ rg.w3c.dom";version="10.1.41",org.apache.catalina.session;uses:="jaka
+ rta.servlet,jakarta.servlet.http,javax.sql,org.apache.catalina,org.ap
+ ache.catalina.util,org.apache.tomcat.util.res";version="10.1.41",org.
+ apache.catalina.startup;uses:="jakarta.annotation,jakarta.servlet,jak
+ arta.servlet.descriptor,javax.management,org.apache.catalina,org.apac
+ he.catalina.connector,org.apache.catalina.core,org.apache.catalina.de
+ ploy,org.apache.catalina.util,org.apache.juli.logging,org.apache.tomc
+ at,org.apache.tomcat.util.bcel.classfile,org.apache.tomcat.util.descr
+ iptor.web,org.apache.tomcat.util.digester,org.apache.tomcat.util.file
+ ,org.apache.tomcat.util.http,org.apache.tomcat.util.res,org.xml.sax";
+ version="10.1.41",org.apache.catalina.users;uses:="javax.naming,javax
+ .naming.spi,javax.sql,org.apache.catalina";version="10.1.41",org.apac
+ he.catalina.util;uses:="jakarta.servlet,jakarta.servlet.http,javax.ma
+ nagement,org.apache.catalina,org.apache.catalina.connector,org.apache
+ .juli.logging,org.apache.tomcat.util.descriptor.web,org.w3c.dom";vers
+ ion="10.1.41",org.apache.catalina.valves;uses:="jakarta.servlet,org.a
+ pache.catalina,org.apache.catalina.connector,org.apache.catalina.util
+ ,org.apache.juli.logging,org.apache.tomcat.util.descriptor.web,org.ap
+ ache.tomcat.util.res";version="10.1.41",org.apache.catalina.valves.re
+ write;uses:="jakarta.servlet,org.apache.catalina,org.apache.catalina.
+ connector,org.apache.catalina.valves,org.apache.tomcat.util.res";vers
+ ion="10.1.41",org.apache.catalina.webresources;uses:="org.apache.cata
+ lina,org.apache.catalina.util,org.apache.juli.logging,org.apache.tomc
+ at.util.res";version="10.1.41",org.apache.catalina.webresources.war;v
+ ersion="10.1.41",org.apache.coyote;uses:="jakarta.servlet,jakarta.ser
+ vlet.http,javax.management,org.apache.coyote.http11,org.apache.coyote
+ .http11.upgrade,org.apache.juli.logging,org.apache.tomcat,org.apache.
+ tomcat.util.buf,org.apache.tomcat.util.collections,org.apache.tomcat.
+ util.http,org.apache.tomcat.util.log,org.apache.tomcat.util.modeler,o
+ rg.apache.tomcat.util.net";version="10.1.41",org.apache.coyote.ajp;us
+ es:="jakarta.servlet,org.apache.coyote,org.apache.juli.logging,org.ap
+ ache.tomcat.util.buf,org.apache.tomcat.util.net,org.apache.tomcat.uti
+ l.res";version="10.1.41",org.apache.coyote.http11;uses:="jakarta.serv
+ let,javax.management,org.apache.coyote,org.apache.coyote.http11.upgra
+ de,org.apache.juli.logging,org.apache.tomcat.util.buf,org.apache.tomc
+ at.util.http.parser,org.apache.tomcat.util.net,org.apache.tomcat.util
+ .res";version="10.1.41",org.apache.coyote.http11.filters;uses:="org.a
+ pache.coyote,org.apache.coyote.http11,org.apache.juli.logging,org.apa
+ che.tomcat.util.buf,org.apache.tomcat.util.http.parser,org.apache.tom
+ cat.util.net";version="10.1.41",org.apache.coyote.http11.upgrade;uses
+ :="jakarta.servlet,jakarta.servlet.http,org.apache.coyote,org.apache.
+ juli.logging,org.apache.tomcat.util.modeler,org.apache.tomcat.util.ne
+ t";version="10.1.41",org.apache.coyote.http2;uses:="jakarta.servlet,j
+ akarta.servlet.http,org.apache.coyote,org.apache.coyote.http11,org.ap
+ ache.coyote.http11.upgrade,org.apache.tomcat.util.http.parser,org.apa
+ che.tomcat.util.net,org.apache.tomcat.util.res";version="10.1.41",org
+ .apache.juli;version="10.1.41",org.apache.juli.logging;version="10.1.
+ 41",org.apache.naming;uses:="javax.naming";version="10.1.41",org.apac
+ he.naming.factory;uses:="javax.naming,javax.naming.spi,javax.sql,org.
+ apache.naming";version="10.1.41",org.apache.naming.java;uses:="javax.
+ naming,javax.naming.spi";version="10.1.41",org.apache.tomcat;uses:="j
+ akarta.servlet,javax.naming";version="10.1.41",org.apache.tomcat.jni;
+ version="10.1.41",org.apache.tomcat.util;uses:="org.apache.tomcat.uti
+ l.res";version="10.1.41",org.apache.tomcat.util.bcel.classfile;versio
+ n="10.1.41",org.apache.tomcat.util.buf;uses:="org.apache.tomcat.util.
+ res";version="10.1.41",org.apache.tomcat.util.codec.binary;uses:="org
+ .apache.tomcat.util.res";version="10.1.41",org.apache.tomcat.util.col
+ lections;version="10.1.41",org.apache.tomcat.util.compat;uses:="javax
+ .security.auth";version="10.1.41",org.apache.tomcat.util.descriptor;u
+ ses:="org.apache.juli.logging,org.apache.tomcat.util.digester,org.xml
+ .sax,org.xml.sax.ext";version="10.1.41",org.apache.tomcat.util.descri
+ ptor.tagplugin;uses:="jakarta.servlet,org.xml.sax";version="10.1.41",
+ org.apache.tomcat.util.descriptor.web;uses:="jakarta.servlet,jakarta.
+ servlet.descriptor,org.apache.juli.logging,org.apache.tomcat,org.apac
+ he.tomcat.util.digester,org.apache.tomcat.util.res,org.xml.sax";versi
+ on="10.1.41",org.apache.tomcat.util.digester;uses:="javax.xml.parsers
+ ,org.apache.juli.logging,org.apache.tomcat.util,org.apache.tomcat.uti
+ l.res,org.xml.sax,org.xml.sax.ext";version="10.1.41",org.apache.tomca
+ t.util.file;version="10.1.41",org.apache.tomcat.util.http;uses:="jaka
+ rta.servlet.http,org.apache.tomcat.util.buf";version="10.1.41",org.ap
+ ache.tomcat.util.http.fileupload;uses:="org.apache.tomcat.util.http.f
+ ileupload.impl,org.apache.tomcat.util.http.fileupload.util";version="
+ 10.1.41",org.apache.tomcat.util.http.fileupload.disk;uses:="org.apach
+ e.tomcat.util.http.fileupload";version="10.1.41",org.apache.tomcat.ut
+ il.http.fileupload.impl;uses:="org.apache.tomcat.util.http.fileupload
+ ";version="10.1.41",org.apache.tomcat.util.http.fileupload.servlet;us
+ es:="jakarta.servlet.http,org.apache.tomcat.util.http.fileupload";ver
+ sion="10.1.41",org.apache.tomcat.util.http.fileupload.util;uses:="org
+ .apache.tomcat.util.http.fileupload";version="10.1.41",org.apache.tom
+ cat.util.http.parser;uses:="org.apache.tomcat.util.buf,org.apache.tom
+ cat.util.http";version="10.1.41",org.apache.tomcat.util.log;uses:="or
+ g.apache.juli.logging";version="10.1.41",org.apache.tomcat.util.model
+ er;uses:="javax.management,javax.management.modelmbean";version="10.1
+ .41",org.apache.tomcat.util.modeler.modules;uses:="javax.management,o
+ rg.apache.tomcat.util.modeler,org.apache.tomcat.util.res";version="10
+ .1.41",org.apache.tomcat.util.net;uses:="jakarta.servlet,javax.manage
+ ment,javax.net.ssl,org.apache.juli.logging,org.apache.tomcat.util.col
+ lections,org.apache.tomcat.util.net.openssl,org.apache.tomcat.util.ne
+ t.openssl.ciphers,org.apache.tomcat.util.res,org.apache.tomcat.util.t
+ hreads";version="10.1.41",org.apache.tomcat.util.net.openssl;uses:="j
+ avax.net.ssl,org.apache.juli.logging,org.apache.tomcat.util.net";vers
+ ion="10.1.41",org.apache.tomcat.util.net.openssl.ciphers;version="10.
+ 1.41",org.apache.tomcat.util.res;version="10.1.41",org.apache.tomcat.
+ util.scan;uses:="jakarta.servlet,org.apache.tomcat";version="10.1.41"
+ ,org.apache.tomcat.util.security;version="10.1.41",org.apache.tomcat.
+ util.threads;uses:="org.apache.tomcat.util.res";version="10.1.41"
+Implementation-Title: Apache Tomcat
+Implementation-Vendor: Apache Software Foundation
+Implementation-Version: 10.1.41
+Import-Package: jakarta.annotation,jakarta.annotation.security,jakarta
+ .ejb,jakarta.mail,jakarta.mail.internet,jakarta.persistence,jakarta.s
+ ecurity.auth.message;version="[3.0,4)",jakarta.security.auth.message.
+ callback;version="[3.0,4)",jakarta.security.auth.message.config;versi
+ on="[3.0,4)",jakarta.security.auth.message.module;version="[3.0,4)",j
+ akarta.servlet;version="[6.0,7)",jakarta.servlet.annotation;version="
+ [6.0,7)",jakarta.servlet.descriptor;version="[6.0,7)",jakarta.servlet
+ .http;version="[6.0,7)",jakarta.xml.ws,java.beans,java.io,java.lang,j
+ ava.lang.annotation,java.lang.instrument,java.lang.invoke,java.lang.m
+ anagement,java.lang.module,java.lang.ref,java.lang.reflect,java.math,
+ java.net,java.nio,java.nio.channels,java.nio.charset,java.nio.file,ja
+ va.nio.file.attribute,java.rmi,java.security,java.security.cert,java.
+ security.spec,java.sql,java.text,java.time,java.time.chrono,java.time
+ .format,java.time.temporal,java.util,java.util.concurrent,java.util.c
+ oncurrent.atomic,java.util.concurrent.locks,java.util.function,java.u
+ til.jar,java.util.logging,java.util.regex,java.util.stream,java.util.
+ zip,javax.crypto,javax.crypto.spec,javax.imageio,javax.management,jav
+ ax.management.loading,javax.management.modelmbean,javax.management.op
+ enmbean,javax.naming,javax.naming.directory,javax.naming.ldap,javax.n
+ aming.spi,javax.net.ssl,javax.security.auth,javax.security.auth.callb
+ ack,javax.security.auth.login,javax.security.auth.spi,javax.security.
+ auth.x500,javax.security.cert,javax.sql,javax.wsdl,javax.wsdl.extensi
+ ons,javax.wsdl.extensions.soap,javax.wsdl.factory,javax.wsdl.xml,java
+ x.xml.namespace,javax.xml.parsers,javax.xml.rpc,javax.xml.rpc.handler
+ ,javax.xml.transform,javax.xml.transform.dom,javax.xml.transform.stre
+ am,org.apache.tomcat.jakartaee,org.ietf.jgss,org.w3c.dom,org.xml.sax,
+ org.xml.sax.ext,org.xml.sax.helpers
+Private-Package: org.apache.naming.factory.webservices,org.apache.tomc
+ at.util.bcel,org.apache.tomcat.util.http.fileupload.util.mime,org.apa
+ che.tomcat.util.json,org.apache.tomcat.util.net.jsse
+Provide-Capability: osgi.contract;osgi.contract=JakartaAuthentication;
+ version:Version="3.0";uses:="jakarta.security.auth.message,jakarta.se
+ curity.auth.message.callback,jakarta.security.auth.message.config,jak
+ arta.security.auth.message.module",osgi.contract;osgi.contract=Jakart
+ aServlet;version:Version="6.0";uses:="jakarta.servlet,jakarta.servlet
+ .annotation,jakarta.servlet.descriptor,jakarta.servlet.http,jakarta.s
+ ervlet.resources"
+Require-Capability: osgi.extender;filter:="(&(osgi.extender=osgi.servi
+ celoader.processor)(version>=1.0.0)(!(version>=2.0.0)))",osgi.service
+ loader;filter:="(osgi.serviceloader=org.apache.juli.logging.Log)";osg
+ i.serviceloader="org.apache.juli.logging.Log",osgi.contract;osgi.cont
+ ract=JakartaAnnotations;filter:="(&(osgi.contract=JakartaAnnotations)
+ (version=2.1.0))",osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=11))"
+Specification-Title: Apache Tomcat
+Specification-Vendor: Apache Software Foundation
+Specification-Version: 10.1
+X-Compile-Source-JDK: 11
+X-Compile-Target-JDK: 11
+
+Name: jakarta/security/auth/message/
+Implementation-Title: jakarta.security.auth.message
+Implementation-Vendor: Apache Software Foundation
+Implementation-Version: 3.0
+Specification-Title: Jakarta Authentication SPI for Containers
+Specification-Vendor: Eclipse Foundation
+Specification-Version: 3.0
+
+Name: jakarta/security/auth/message/callback/
+Implementation-Title: jakarta.security.auth.message
+Implementation-Vendor: Apache Software Foundation
+Implementation-Version: 3.0
+Specification-Title: Jakarta Authentication SPI for Containers
+Specification-Vendor: Eclipse Foundation
+Specification-Version: 3.0
+
+Name: jakarta/security/auth/message/config/
+Implementation-Title: jakarta.security.auth.message
+Implementation-Vendor: Apache Software Foundation
+Implementation-Version: 3.0
+Specification-Title: Jakarta Authentication SPI for Containers
+Specification-Vendor: Eclipse Foundation
+Specification-Version: 3.0
+
+Name: jakarta/security/auth/message/module/
+Implementation-Title: jakarta.security.auth.message
+Implementation-Vendor: Apache Software Foundation
+Implementation-Version: 3.0
+Specification-Title: Jakarta Authentication SPI for Containers
+Specification-Vendor: Eclipse Foundation
+Specification-Version: 3.0
+
+Name: jakarta/servlet/
+Implementation-Title: jakarta.servlet
+Implementation-Vendor: Apache Software Foundation
+Implementation-Version: 6.0
+Specification-Title: Jakarta Servlet
+Specification-Vendor: Eclipse Foundation
+Specification-Version: 6.0
+
+Name: jakarta/servlet/annotation/
+Implementation-Title: jakarta.servlet
+Implementation-Vendor: Apache Software Foundation
+Implementation-Version: 6.0
+Specification-Title: Jakarta Servlet
+Specification-Vendor: Eclipse Foundation
+Specification-Version: 6.0
+
+Name: jakarta/servlet/descriptor/
+Implementation-Title: jakarta.servlet
+Implementation-Vendor: Apache Software Foundation
+Implementation-Version: 6.0
+Specification-Title: Jakarta Servlet
+Specification-Vendor: Eclipse Foundation
+Specification-Version: 6.0
+
+Name: jakarta/servlet/http/
+Implementation-Title: jakarta.servlet
+Implementation-Vendor: Apache Software Foundation
+Implementation-Version: 6.0
+Specification-Title: Jakarta Servlet
+Specification-Vendor: Eclipse Foundation
+Specification-Version: 6.0
+
+Name: jakarta/servlet/resources/
+Implementation-Title: jakarta.servlet
+Implementation-Vendor: Apache Software Foundation
+Implementation-Version: 6.0
+Specification-Title: Jakarta Servlet
+Specification-Vendor: Eclipse Foundation
+Specification-Version: 6.0
+

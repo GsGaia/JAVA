@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: spring.boot.starter.oauth2.resource.server
+Build-Jdk-Spec: 17
+Built-By: Spring
+Implementation-Title: Starter for using Spring Security's OAuth2 resourc
+ e server features
+Implementation-Version: 3.5.0
+Spring-Boot-Jar-Type: dependencies-starter
+

@@ -24,16 +24,49 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
-	implementation 'org.springframework.boot:spring-boot-starter-validation'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	runtimeOnly 'org.postgresql:postgresql'
-	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	// --- Spring Boot Starters (Web, JPA, JDBC, Validação) ---
+	implementation 'org.springframework.boot:spring-boot-starter-web'						// API REST
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'					// JPA / Hibernate
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'						// JDBC (para DataSource)
+	implementation 'org.springframework.boot:spring-boot-starter-validation'				// Bean Validation (javax.validation)
+
+	// --- Banco de Dados ---
+	runtimeOnly 'org.postgresql:postgresql'													// Driver do PostgreSQL
+
+	// --- Swagger / OpenAPI ---
+	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.5.0'				// Geração automática da documentação Swagger
+
+	// --- JWT ---
+	implementation 'io.jsonwebtoken:jjwt-api:0.11.5'         								// API para criação e parsing de JWT
+	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5'											// Implementação da lib JWT
+	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.5'										// Suporte a JSON com Jackson para JWT
+
+	// --- Segurança com JWT (opcional, se usar Spring Security) ---
+	implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'	// Permite usar JWT como OAuth2 resource server
+
+	// --- Processador de Anotações ---
+	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'		// Para processar configurações com @ConfigurationProperties
+
+	// --- Testes ---
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'					// Testes com JUnit, Mockito etc.
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'							// Lançador da plataforma de testes JUnit 5
 }
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+// Tarefa para empacotar um "fat JAR" com todas as dependências
+tasks.register('fatJar', Jar) {
+	manifest {
+		attributes 'Main-Class': 'br.com.fiap.Gs.Gaia.GaiaApplication'
+	}
+	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+	archiveBaseName = 'api-Gaia'
+	from {
+		configurations.compileClasspath.collect {
+			it.isDirectory() ? it : zipTree(it)
+		}
+	}
+	with jar
 }

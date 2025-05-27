@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Created-By: 17.0.15 (Oracle Corporation)
+Implementation-Title: spring-security-core
+Implementation-Version: 6.5.0
+Automatic-Module-Name: spring.security.core
+
