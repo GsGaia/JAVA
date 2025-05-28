@@ -1,5 +1,7 @@
 package br.com.fiap.Gs.Gaia.Service;
 
+import br.com.fiap.Gs.Gaia.Dto.Request.UsersResquest;
+import br.com.fiap.Gs.Gaia.Dto.UsersResponse;
 import br.com.fiap.Gs.Gaia.Models.Users;
 import br.com.fiap.Gs.Gaia.Repository.UsersRepository;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,8 +17,12 @@ public class UsersService {
     @Autowired
     private final UsersRepository usersRepository;
 
+    @Autowired
     public UsersService(UsersRepository usersRepository) {
         this.usersRepository = usersRepository;
     }
 
+    public UsersResponse createUser(){
+        return null;
+    }
 }
