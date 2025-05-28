@@ -9,7 +9,7 @@ version = '0.0.1-SNAPSHOT'
 
 java {
 	toolchain {
-		languageVersion = JavaLanguageVersion.of(18)
+		languageVersion = JavaLanguageVersion.of(21)
 	}
 }
 
@@ -25,36 +25,40 @@ repositories {
 
 dependencies {
 	// --- Spring Boot Starters (Web, JPA, JDBC, Validação) ---
-	implementation 'org.springframework.boot:spring-boot-starter-web'						// API REST
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'					// JPA / Hibernate
-	implementation 'org.springframework.boot:spring-boot-starter-jdbc'						// JDBC (para DataSource)
-	implementation 'org.springframework.boot:spring-boot-starter-validation'				// Bean Validation (javax.validation)
-	implementation 'org.springframework.boot:spring-boot-starter-hateoas'					// Hateoas
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'org.springframework.boot:spring-boot-starter-hateoas'
 	implementation 'org.springframework.boot:spring-boot-starter'
 
+	// --- Lombok ---
+	compileOnly 'org.projectlombok:lombok:1.18.32'
+	annotationProcessor 'org.projectlombok:lombok:1.18.32'
 
 	// --- Banco de Dados ---
-	//runtimeOnly 'org.postgresql:postgresql'													// Driver do PostgreSQL
 	runtimeOnly 'com.h2database:h2'
-
+	//runtimeOnly 'org.postgresql:postgresql'
 
 	// --- Swagger / OpenAPI ---
-	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.5.0'				// Geração automática da documentação Swagger
+	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.5.0'
 
-	// --- JWT ---
-	//implementation 'io.jsonwebtoken:jjwt-api:0.11.5'         								// API para criação e parsing de JWT
-	//runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5'											// Implementação da lib JWT
-	//runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.5'										// Suporte a JSON com Jackson para JWT
+	// --- JWT (comentado) ---
+	//implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
+	//runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5'
+	//runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.5'
 
-	// --- Segurança com JWT (opcional, se usar Spring Security) ---
-	//implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'	// Permite usar JWT como OAuth2 resource server
+	// --- Segurança com JWT (opcional) ---
+	//implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
 
 	// --- Processador de Anotações ---
-	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'		// Para processar configurações com @ConfigurationProperties
+	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 
 	// --- Testes ---
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'					// Testes com JUnit, Mockito etc.
-	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'							// Lançador da plataforma de testes JUnit 5
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	testCompileOnly 'org.projectlombok:lombok:1.18.32'
+	testAnnotationProcessor 'org.projectlombok:lombok:1.18.32'
 }
 
 tasks.named('test') {

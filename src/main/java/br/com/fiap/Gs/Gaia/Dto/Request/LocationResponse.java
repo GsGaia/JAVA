@@ -1,4 +1,4 @@
-package br.com.fiap.Gs.Gaia.Dto;
+package br.com.fiap.Gs.Gaia.Dto.Request;
 
 import br.com.fiap.Gs.Gaia.Enum.TypeStation;
 import br.com.fiap.Gs.Gaia.Enum.TypeStatusLocation;

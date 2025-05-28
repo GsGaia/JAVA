@@ -1,8 +1,7 @@
 package br.com.fiap.Gs.Gaia.Controller;
 
-import br.com.fiap.Gs.Gaia.Dto.Request.UsersResquest;
+import br.com.fiap.Gs.Gaia.Dto.UsersRequest;
 import br.com.fiap.Gs.Gaia.Dto.UsersResponse;
-import br.com.fiap.Gs.Gaia.Models.Users;
 import br.com.fiap.Gs.Gaia.Service.UsersService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -19,29 +18,46 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/user")
 public class UsersController {
-    private final UsersService usersService;
-    private final  UsersResquest usersResquest;
 
     @Autowired
-    public UsersController(UsersService usersService, UsersResquest usersResquest) {
-        this.usersService = usersService;
-        this.usersResquest = usersResquest;
-    }
+    private UsersService usersService;
 
-    @Operation(summary = "Cria um novo usuario")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "201", description = "usuario cadastrado com sucesso",
-                    content = {@Content(mediaType = "application/json",
-                            schema = @Schema(implementation = Users.class))}),
-            @ApiResponse(responseCode = "400", description = "Atributos informados são inválidos",
-                    content = @Content(schema = @Schema()))
-    })
     @PostMapping
     public ResponseEntity<UsersResponse> createUser(@RequestBody @Valid UsersRequest usersRequest) {
-        //UsersResponse usersResponse = usersService.createUser(usersRequest);
-        //return ResponseEntity.status(200).body(usersResponse);
-
-        return null;
+        UsersResponse response = usersService.create(usersRequest);
+        return ResponseEntity.ok().body(response);
     }
 
+    @GetMapping
+    public ResponseEntity<List<UsersResponse>> getAllUsers() {
+        List<UsersResponse> users = usersService.getAllUsers();
+        return ResponseEntity.ok(users);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<UsersResponse> getUserById(@PathVariable Long id) {
+        return usersService.getUserById(id)
+                .map(userResponse -> ResponseEntity.ok(userResponse))
+                .orElse(ResponseEntity.notFound().build());
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
+        usersService.deleteUserById(id);
+        return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<UsersResponse> updateUser(
+            @PathVariable Long id,
+            @RequestBody @Valid UsersRequest usersRequest) {
+        UsersResponse updatedUser = usersService.updateUser(id, usersRequest);
+        return ResponseEntity.ok(updatedUser);
+    }
+
+    @PatchMapping("/{id}/toggle-active")
+    public ResponseEntity<UsersResponse> toggleActiveUser(@PathVariable Long id) {
+        UsersResponse toggledUser = usersService.toggleActiveUser(id);
+        return ResponseEntity.ok(toggledUser);
+    }
 }

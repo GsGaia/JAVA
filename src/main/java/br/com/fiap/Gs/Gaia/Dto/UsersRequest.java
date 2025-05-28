@@ -1,39 +1,48 @@
-package br.com.fiap.Gs.Gaia.Models;
+package br.com.fiap.Gs.Gaia.Dto;
 
 import br.com.fiap.Gs.Gaia.Enum.TypeUsers;
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import br.com.fiap.Gs.Gaia.Models.Requestion;
+import jakarta.persistence.Column;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.validation.constraints.*;
+import org.hibernate.validator.constraints.br.CPF;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
+import java.time.LocalDate;
 import java.util.List;
 
-@Entity
-@Table(name = "users")
-public class Users {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idUser;
+public class UsersRequest {
 
+    @NotNull
+    @Size(min = 3, max = 250, message = "O nome está fora dos padrões")
     private String name;
+
+    @Email(message = "Email inválido")
+    @NotBlank(message = "Email é obrigatório")
     private String email;
+
+    @NotNull
+    @Size(min = 3, max = 30, message = "A senha está fora dos padrões")
     private String password;
+
+    @CPF
     private String cpf;
 
-    private LocalDateTime creationDate;
+    @FutureOrPresent
+    @Column(name = "creation_date")
+    private LocalDate creationDate;
+
+    @NotNull(message = "O tipo de usuário é obrigatório.")
+    @Enumerated(EnumType.STRING)
     private TypeUsers role;
+
+    @NotNull(message = "activeUser não pode ser nulo")
     private Boolean activeUser;
 
-    @OneToMany(mappedBy = "users", cascade = CascadeType.PERSIST)
-    private List<Requestion> requestions = new ArrayList<>();
-
-    public Users() {
+    public UsersRequest() {
     }
 
-    public Users(Long idUser, String name, String email, String password, String cpf, LocalDateTime creationDate, TypeUsers role, Boolean activeUser, List<Requestion> requestions) {
-        this.idUser = idUser;
+    public UsersRequest(String name, String email, String password, String cpf, LocalDate creationDate, TypeUsers role, Boolean activeUser) {
         this.name = name;
         this.email = email;
         this.password = password;
@@ -41,15 +50,6 @@ public class Users {
         this.creationDate = creationDate;
         this.role = role;
         this.activeUser = activeUser;
-        this.requestions = requestions;
-    }
-
-    public Long getIdUser() {
-        return idUser;
-    }
-
-    public void setIdUser(Long idUser) {
-        this.idUser = idUser;
     }
 
     public String getName() {
@@ -84,11 +84,11 @@ public class Users {
         this.cpf = cpf;
     }
 
-    public LocalDateTime getCreationDate() {
+    public LocalDate getCreationDate() {
         return creationDate;
     }
 
-    public void setCreationDate(LocalDateTime creationDate) {
+    public void setCreationDate(LocalDate creationDate) {
         this.creationDate = creationDate;
     }
 
@@ -109,10 +109,6 @@ public class Users {
     }
 
     public List<Requestion> getRequestions() {
-        return requestions;
-    }
-
-    public void setRequestions(List<Requestion> requestions) {
-        this.requestions = requestions;
+        return getRequestions();
     }
 }

@@ -1,8 +1,15 @@
 {
-  "name": "João Silva",
+  "idUser": 0,
+  "name": "João da Silva",
   "email": "joao.silva@example.com",
-  "password": "senhaSegura123",
-  "cpf": "123.456.789-09",
-  "creationDate": "2025-05-27",
-  "role": "ADMIN"
+  "password": "senhaForte123!",
+  "cpf": "111.444.777-35",
+  "creationDate": "2025-05-28T22:15:02.476Z",
+  "role": "ADMIN",
+  "activeUser": true,
+  "requestions": []
 }
+
+======
+
+
