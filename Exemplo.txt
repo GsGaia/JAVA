@@ -1,8 +1,0 @@
-{
-  "name": "João Silva",
-  "email": "joao.silva@example.com",
-  "password": "senhaSegura123",
-  "cpf": "123.456.789-09",
-  "creationDate": "2025-05-27",
-  "role": "ADMIN"
-}
