@@ -1,0 +1,64 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: io.swagger.v3.oas.annotations
+Build-Jdk-Spec: 11
+Bundle-Description: swagger-annotations; Jakarta Enabled
+Bundle-Developers: frantuma;email="frantuma@yahoo.com";name="Francesco
+  Tumanischvili",fehguy;email="fehguy@gmail.com";name="Tony Tam",webro
+ n;email="webron@gmail.com";name="Ron Ratovsky"
+Bundle-DocURL: https://github.com/swagger-api/swagger-core/modules/swa
+ gger-annotations
+Bundle-License: "Apache License 2.0";link="http://www.apache.org/licen
+ ses/LICENSE-2.0.html"
+Bundle-ManifestVersion: 2
+Bundle-Name: swagger-annotations Jakarta
+Bundle-SCM: url="https://github.com/swagger-api/swagger-core/modules/s
+ wagger-annotations",connection="scm:git:git@github.com:swagger-api/sw
+ agger-core.git/modules/swagger-annotations",developer-connection="scm
+ :git:git@github.com:swagger-api/swagger-core.git/modules/swagger-anno
+ tations",tag=HEAD
+Bundle-SymbolicName: io.swagger.core.v3.swagger-annotations.jakarta
+Bundle-Version: 2.2.21
+Created-By: Maven JAR Plugin 3.3.0
+Export-Package: io.swagger.v3.oas.annotations;uses:="io.swagger.v3.oas
+ .annotations.enums,io.swagger.v3.oas.annotations.extensions,io.swagge
+ r.v3.oas.annotations.info,io.swagger.v3.oas.annotations.media,io.swag
+ ger.v3.oas.annotations.parameters,io.swagger.v3.oas.annotations.respo
+ nses,io.swagger.v3.oas.annotations.security,io.swagger.v3.oas.annotat
+ ions.servers,io.swagger.v3.oas.annotations.tags";version="2.2.21",io.
+ swagger.v3.oas.annotations.callbacks;uses:="io.swagger.v3.oas.annotat
+ ions,io.swagger.v3.oas.annotations.extensions";version="2.2.21",io.sw
+ agger.v3.oas.annotations.enums;version="2.2.21",io.swagger.v3.oas.ann
+ otations.extensions;version="2.2.21",io.swagger.v3.oas.annotations.he
+ aders;uses:="io.swagger.v3.oas.annotations.enums,io.swagger.v3.oas.an
+ notations.media";version="2.2.21",io.swagger.v3.oas.annotations.info;
+ uses:="io.swagger.v3.oas.annotations,io.swagger.v3.oas.annotations.ex
+ tensions";version="2.2.21",io.swagger.v3.oas.annotations.links;uses:=
+ "io.swagger.v3.oas.annotations.extensions,io.swagger.v3.oas.annotatio
+ ns.servers";version="2.2.21",io.swagger.v3.oas.annotations.media;uses
+ :="io.swagger.v3.oas.annotations,io.swagger.v3.oas.annotations.extens
+ ions,io.swagger.v3.oas.annotations.headers";version="2.2.21",io.swagg
+ er.v3.oas.annotations.parameters;uses:="io.swagger.v3.oas.annotations
+ .extensions,io.swagger.v3.oas.annotations.media";version="2.2.21",io.
+ swagger.v3.oas.annotations.responses;uses:="io.swagger.v3.oas.annotat
+ ions.extensions,io.swagger.v3.oas.annotations.headers,io.swagger.v3.o
+ as.annotations.links,io.swagger.v3.oas.annotations.media";version="2.
+ 2.21",io.swagger.v3.oas.annotations.security;uses:="io.swagger.v3.oas
+ .annotations.enums,io.swagger.v3.oas.annotations.extensions";version=
+ "2.2.21",io.swagger.v3.oas.annotations.servers;uses:="io.swagger.v3.o
+ as.annotations.extensions";version="2.2.21",io.swagger.v3.oas.annotat
+ ions.tags;uses:="io.swagger.v3.oas.annotations,io.swagger.v3.oas.anno
+ tations.extensions";version="2.2.21"
+implementation-version: 2.2.21
+Import-Package: io.swagger.v3.oas.annotations,io.swagger.v3.oas.annota
+ tions.enums,io.swagger.v3.oas.annotations.extensions,io.swagger.v3.oa
+ s.annotations.headers,io.swagger.v3.oas.annotations.info,io.swagger.v
+ 3.oas.annotations.links,io.swagger.v3.oas.annotations.media,io.swagge
+ r.v3.oas.annotations.parameters,io.swagger.v3.oas.annotations.respons
+ es,io.swagger.v3.oas.annotations.security,io.swagger.v3.oas.annotatio
+ ns.servers,io.swagger.v3.oas.annotations.tags
+mode: development
+package: io.swagger
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+url: https://github.com/swagger-api/swagger-core/modules/swagger-annot
+ ations
+

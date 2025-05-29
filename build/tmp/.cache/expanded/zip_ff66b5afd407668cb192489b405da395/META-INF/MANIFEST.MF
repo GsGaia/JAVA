@@ -1,0 +1,29 @@
+Manifest-Version: 1.0
+Bundle-ActivationPolicy: lazy
+Bundle-Activator: org.apache.logging.slf4j.Activator
+Bundle-Description: The Apache Log4j binding between Log4j 2 API and S
+ LF4J.
+Bundle-License: "Apache-2.0";link="https://www.apache.org/licenses/LIC
+ ENSE-2.0.txt"
+Bundle-ManifestVersion: 2
+Bundle-Name: Apache Log4j to SLF4J Adapter
+Bundle-SymbolicName: org.apache.logging.log4j.to.slf4j
+Bundle-Vendor: The Apache Software Foundation
+Bundle-Version: 2.21.1
+Export-Package: org.apache.logging.slf4j;version="2.20.1";uses:="org.a
+ pache.logging.log4j,org.apache.logging.log4j.message,org.apache.loggi
+ ng.log4j.spi,org.apache.logging.log4j.util,org.slf4j"
+Import-Package: org.slf4j;version="[1.7,3)",org.slf4j.spi;version="[1.
+ 7,3)",org.apache.logging.log4j;version="[2.20,3)",org.apache.logging.
+ log4j.message;version="[2.20,3)",org.apache.logging.log4j.spi;version
+ ="[2.20,3)",org.apache.logging.log4j.status;version="[2.20,3)",org.ap
+ ache.logging.log4j.util;version="[2.20,3)"
+Multi-Release: false
+Provide-Capability: osgi.service;objectClass:List<String>="org.apache.
+ logging.log4j.spi.Provider";effective:=active,osgi.serviceloader;osgi
+ .serviceloader="org.apache.logging.log4j.spi.Provider";register:="org
+ .apache.logging.slf4j.SLF4JProvider"
+Require-Capability: osgi.extender;filter:="(&(osgi.extender=osgi.servi
+ celoader.registrar)(version>=1.0.0)(!(version>=2.0.0)))";resolution:=
+ optional,osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+

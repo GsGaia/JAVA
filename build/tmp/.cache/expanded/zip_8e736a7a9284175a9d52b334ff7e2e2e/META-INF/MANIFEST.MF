@@ -1,0 +1,58 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: io.swagger.v3.oas.models
+Build-Jdk-Spec: 11
+Bundle-Description: swagger-models; Jakarta Enabled
+Bundle-Developers: frantuma;email="frantuma@yahoo.com";name="Francesco
+  Tumanischvili",fehguy;email="fehguy@gmail.com";name="Tony Tam",webro
+ n;email="webron@gmail.com";name="Ron Ratovsky"
+Bundle-DocURL: https://github.com/swagger-api/swagger-core/modules/swa
+ gger-models
+Bundle-License: "Apache License 2.0";link="http://www.apache.org/licen
+ ses/LICENSE-2.0.html"
+Bundle-ManifestVersion: 2
+Bundle-Name: swagger-models Jakarta
+Bundle-SCM: url="https://github.com/swagger-api/swagger-core/modules/s
+ wagger-models",connection="scm:git:git@github.com:swagger-api/swagger
+ -core.git/modules/swagger-models",developer-connection="scm:git:git@g
+ ithub.com:swagger-api/swagger-core.git/modules/swagger-models",tag=HE
+ AD
+Bundle-SymbolicName: io.swagger.core.v3.swagger-models.jakarta
+Bundle-Version: 2.2.21
+Created-By: Maven JAR Plugin 3.3.0
+Export-Package: io.swagger.v3.oas.models;uses:="com.fasterxml.jackson.
+ annotation,io.swagger.v3.oas.models.callbacks,io.swagger.v3.oas.model
+ s.examples,io.swagger.v3.oas.models.headers,io.swagger.v3.oas.models.
+ info,io.swagger.v3.oas.models.links,io.swagger.v3.oas.models.media,io
+ .swagger.v3.oas.models.parameters,io.swagger.v3.oas.models.responses,
+ io.swagger.v3.oas.models.security,io.swagger.v3.oas.models.servers,io
+ .swagger.v3.oas.models.tags";version="2.2.21",io.swagger.v3.oas.model
+ s.annotations;version="2.2.21",io.swagger.v3.oas.models.callbacks;use
+ s:="io.swagger.v3.oas.models";version="2.2.21",io.swagger.v3.oas.mode
+ ls.examples;version="2.2.21",io.swagger.v3.oas.models.headers;uses:="
+ io.swagger.v3.oas.models.examples,io.swagger.v3.oas.models.media";ver
+ sion="2.2.21",io.swagger.v3.oas.models.info;version="2.2.21",io.swagg
+ er.v3.oas.models.links;uses:="io.swagger.v3.oas.models.headers,io.swa
+ gger.v3.oas.models.servers";version="2.2.21",io.swagger.v3.oas.models
+ .media;uses:="com.fasterxml.jackson.annotation,io.swagger.v3.oas.mode
+ ls,io.swagger.v3.oas.models.examples,io.swagger.v3.oas.models.headers
+ ";version="2.2.21",io.swagger.v3.oas.models.parameters;uses:="io.swag
+ ger.v3.oas.models.examples,io.swagger.v3.oas.models.media";version="2
+ .2.21",io.swagger.v3.oas.models.responses;uses:="io.swagger.v3.oas.mo
+ dels.headers,io.swagger.v3.oas.models.links,io.swagger.v3.oas.models.
+ media";version="2.2.21",io.swagger.v3.oas.models.security;version="2.
+ 2.21",io.swagger.v3.oas.models.servers;version="2.2.21",io.swagger.v3
+ .oas.models.tags;uses:="io.swagger.v3.oas.models";version="2.2.21"
+implementation-version: 2.2.21
+Import-Package: com.fasterxml.jackson.annotation;version="[2.16,3)",io
+ .swagger.v3.oas.models,io.swagger.v3.oas.models.callbacks,io.swagger.
+ v3.oas.models.examples,io.swagger.v3.oas.models.headers,io.swagger.v3
+ .oas.models.info,io.swagger.v3.oas.models.links,io.swagger.v3.oas.mod
+ els.media,io.swagger.v3.oas.models.parameters,io.swagger.v3.oas.model
+ s.responses,io.swagger.v3.oas.models.security,io.swagger.v3.oas.model
+ s.servers,io.swagger.v3.oas.models.tags
+mode: development
+package: io.swagger
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+url: https://github.com/swagger-api/swagger-core/modules/swagger-model
+ s
+
