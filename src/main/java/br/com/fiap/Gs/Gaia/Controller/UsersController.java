@@ -23,41 +23,38 @@ public class UsersController {
     private UsersService usersService;
 
     @PostMapping
-    public ResponseEntity<UsersResponse> createUser(@RequestBody @Valid UsersRequest usersRequest) {
+    public ResponseEntity<UsersResponse> create(@RequestBody @Valid UsersRequest usersRequest) {
         UsersResponse response = usersService.create(usersRequest);
         return ResponseEntity.ok().body(response);
     }
 
     @GetMapping
-    public ResponseEntity<List<UsersResponse>> getAllUsers() {
-        List<UsersResponse> users = usersService.getAllUsers();
+    public ResponseEntity<List<UsersResponse>> getAll() {
+        List<UsersResponse> users = usersService.getAll();
         return ResponseEntity.ok(users);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<UsersResponse> getUserById(@PathVariable Long id) {
-        return usersService.getUserById(id)
-                .map(userResponse -> ResponseEntity.ok(userResponse))
-                .orElse(ResponseEntity.notFound().build());
+    public ResponseEntity<UsersResponse> getById(@PathVariable Long id) {
+        return usersService.getById(id).map(userResponse -> ResponseEntity.ok(userResponse)).orElse(ResponseEntity.notFound().build());
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
+    public ResponseEntity<String> delete(@PathVariable Long id) {
         usersService.delete(id);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok("Usuário desativado com sucesso.");
     }
 
+
     @PutMapping("/{id}")
-    public ResponseEntity<UsersResponse> updateUser(
-            @PathVariable Long id,
-            @RequestBody @Valid UsersRequest usersRequest) {
-        UsersResponse updatedUser = usersService.updateUser(id, usersRequest);
+    public ResponseEntity<UsersResponse> update(@PathVariable Long id, @RequestBody @Valid UsersRequest usersRequest) {
+        UsersResponse updatedUser = usersService.update(id, usersRequest);
         return ResponseEntity.ok(updatedUser);
     }
 
     @PatchMapping("/{id}/toggle-active")
-    public ResponseEntity<UsersResponse> toggleActiveUser(@PathVariable Long id) {
-        UsersResponse toggledUser = usersService.toggleActiveUser(id);
+    public ResponseEntity<UsersResponse> toggleActive(@PathVariable Long id) {
+        UsersResponse toggledUser = usersService.toggleActive(id);
         return ResponseEntity.ok(toggledUser);
     }
 }

@@ -24,11 +24,18 @@ public class UsersService {
 
     @Transactional
     public UsersResponse create(@Valid UsersRequest usersRequest) {
-        boolean emailExistente = usersRepository.findAll().stream().anyMatch(u -> u.getClass().equals(usersRequest.getClass()));
+        boolean emailExistente = usersRepository.findAll().stream()
+                .anyMatch(u -> u.getEmail().equalsIgnoreCase(usersRequest.getEmail()));
 
+        boolean cpfExistente = usersRepository.findAll().stream()
+                .anyMatch(u -> u.getCpf().equals(usersRequest.getCpf()));
 
         if (emailExistente) {
             throw new IllegalArgumentException("Email já cadastrado.");
+        }
+
+        if (cpfExistente) {
+            throw new IllegalArgumentException("CPF já cadastrado.");
         }
 
         Users user = new Users(
@@ -59,8 +66,9 @@ public class UsersService {
     }
 
 
-    public List<UsersResponse> getAllUsers() {
+    public List<UsersResponse> getAll() {
         List<Users> usersList = usersRepository.findAll();
+        System.out.println("GetAll com sucesso.\n");
         return usersList.stream()
                 .map(user -> new UsersResponse(
                         user.getIdUser(),
@@ -77,7 +85,8 @@ public class UsersService {
     }
 
 
-    public Optional<UsersResponse> getUserById(Long id) {
+    public Optional<UsersResponse> getById(Long id) {
+        System.out.println("GetById com sucesso.\n");
         return usersRepository.findById(id)
                 .map(user -> new UsersResponse(
                         user.getIdUser(),
@@ -93,16 +102,14 @@ public class UsersService {
     }
 
     public void delete(Long id) {
-        boolean exists = usersRepository.existsById(id);
-        if (!exists) {
-            throw new EntityNotFoundException("Usuário com ID " + id + " não encontrado.");
-        }
-        usersRepository.deleteById(id);
+        Users user = usersRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Usuário com ID " + id + " não encontrado."));
+        user.setActiveUser(false);
+        usersRepository.save(user);
     }
 
-    public UsersResponse updateUser(Long id, UsersRequest usersRequest) {
-        Users user = usersRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+
+    public UsersResponse update(Long id, UsersRequest usersRequest) {
+        Users user = usersRepository.findById(id).orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
 
         user.setName(usersRequest.getName());
         user.setEmail(usersRequest.getEmail());
@@ -115,6 +122,8 @@ public class UsersService {
 
         Users updatedUser = usersRepository.save(user);
 
+        System.out.println("Update com sucesso.\n");
+
         return new UsersResponse(
                 updatedUser.getIdUser(),
                 updatedUser.getName(),
@@ -128,14 +137,15 @@ public class UsersService {
         );
     }
 
-    public UsersResponse toggleActiveUser(Long id) {
-        Users user = usersRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+    public UsersResponse toggleActive(Long id) {
+        Users user = usersRepository.findById(id).orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
 
         user.setActiveUser(!user.getActiveUser());  // inverte o valor
 
         Users updatedUser = usersRepository.save(user);
 
+        System.out.println("Desativado com sucesso.\n");
+
         return new UsersResponse(
                 updatedUser.getIdUser(),
                 updatedUser.getName(),
@@ -148,4 +158,67 @@ public class UsersService {
                 updatedUser.getRequestions()
         );
     }
+    public List<UsersResponse> getAtivos() {
+        List<Users> usersList = usersRepository.findAll().stream()
+                .filter(Users::getActiveUser)
+                .collect(Collectors.toList());
+
+        return usersList.stream()
+                .map(user -> new UsersResponse(
+                        user.getIdUser(),
+                        user.getName(),
+                        user.getEmail(),
+                        user.getPassword(),
+                        user.getCpf(),
+                        user.getCreationDate(),
+                        user.getRole(),
+                        user.getActiveUser(),
+                        user.getRequestions()
+                ))
+                .collect(Collectors.toList());
+    }
+
+    public UsersResponse updateEmail(Long id, String newEmail) {
+        if (usersRepository.findAll().stream().anyMatch(u -> u.getEmail().equalsIgnoreCase(newEmail))) {
+            throw new IllegalArgumentException("Email já cadastrado.");
+        }
+
+        Users user = usersRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Usuário não encontrado"));
+        user.setEmail(newEmail);
+        Users updated = usersRepository.save(user);
+
+        return new UsersResponse(
+                updated.getIdUser(),
+                updated.getName(),
+                updated.getEmail(),
+                updated.getPassword(),
+                updated.getCpf(),
+                updated.getCreationDate(),
+                updated.getRole(),
+                updated.getActiveUser(),
+                updated.getRequestions()
+        );
+    }
+
+    public UsersResponse updateSenha(Long id, String newPassword) {
+        Users user = usersRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Usuário não encontrado"));
+
+        user.setPassword(newPassword);
+        Users updated = usersRepository.save(user);
+
+        return new UsersResponse(
+                updated.getIdUser(),
+                updated.getName(),
+                updated.getEmail(),
+                updated.getPassword(),
+                updated.getCpf(),
+                updated.getCreationDate(),
+                updated.getRole(),
+                updated.getActiveUser(),
+                updated.getRequestions()
+        );
+    }
+
 }

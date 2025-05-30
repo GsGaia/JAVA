@@ -1,0 +1,8 @@
+{
+  "title": "Solicitação de Verificação de Equipamento",
+  "description": "Solicitação para verificar o funcionamento dos sensores de temperatura na unidade.",
+  "unit": "Unidade 12B - Setor Norte",
+  "dataDaRequisicao": "2025-05-30",
+  "userId": 1,
+  "locationId": 1
+}

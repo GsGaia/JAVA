@@ -20,6 +20,7 @@ public class Location {
     private LocalDate startAccident;
     private LocalDate endAccident;
     private TypeStatusLocation statusLocation;
+    private Boolean active;
 
     @OneToMany(mappedBy = "location", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Requestion> requestions = new ArrayList<>();
@@ -30,13 +31,14 @@ public class Location {
     public Location() {
     }
 
-    public Location(Long idLocation, TypeStation state, String city, LocalDate startAccident, LocalDate endAccident, TypeStatusLocation statusLocation, List<Requestion> requestions, Accident accident) {
+    public Location(Long idLocation, TypeStation state, String city, LocalDate startAccident, LocalDate endAccident, TypeStatusLocation statusLocation, Boolean active, List<Requestion> requestions, Accident accident) {
         this.idLocation = idLocation;
         this.state = state;
         this.city = city;
         this.startAccident = startAccident;
         this.endAccident = endAccident;
         this.statusLocation = statusLocation;
+        this.active = active;
         this.requestions = requestions;
         this.accident = accident;
     }
@@ -87,6 +89,14 @@ public class Location {
 
     public void setStatusLocation(TypeStatusLocation statusLocation) {
         this.statusLocation = statusLocation;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
     }
 
     public List<Requestion> getRequestions() {

@@ -29,11 +29,9 @@ public class RequestionService {
     private LocationRepository locationRepository;
 
     public RequestionResponse create(RequestionRequest request) {
-        Users user = usersRepository.findById(request.getUserId())
-                .orElseThrow(() -> new EntityNotFoundException("Usuário não encontrado"));
+        Users user = usersRepository.findById(request.getUserId()).orElseThrow(() -> new EntityNotFoundException("Usuário não encontrado"));
 
-        Location location = locationRepository.findById(request.getLocationId())
-                .orElseThrow(() -> new EntityNotFoundException("Localização não encontrada"));
+        Location location = locationRepository.findById(request.getLocationId()).orElseThrow(() -> new EntityNotFoundException("Localização não encontrada"));
 
         Requestion req = new Requestion();
         req.setTitle(request.getTitle());
@@ -46,6 +44,8 @@ public class RequestionService {
 
         Requestion saved = requestionRepository.save(req);
 
+        System.out.println("Create com sucesso.\n");
+
         return new RequestionResponse(
                 saved.getTitle(),
                 saved.getDescription(),
@@ -55,6 +55,7 @@ public class RequestionService {
     }
 
     public List<RequestionResponse> getAll() {
+        System.out.println("GetAll com sucesso.\n");
         return requestionRepository.findAll().stream()
                 .map(req -> new RequestionResponse(
                         req.getTitle(),
@@ -65,6 +66,8 @@ public class RequestionService {
     }
 
     public Optional<RequestionResponse> getById(Long id) {
+        System.out.println("GetById com sucesso.\n");
+
         return requestionRepository.findById(id)
                 .map(req -> new RequestionResponse(
                         req.getTitle(),
@@ -75,11 +78,16 @@ public class RequestionService {
     }
 
     public void delete(Long id) {
-        if (!requestionRepository.existsById(id)) {
-            throw new EntityNotFoundException("Requisição não encontrada");
-        }
-        requestionRepository.deleteById(id);
+        Requestion req = requestionRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Requisição não encontrada"));
+
+        req.setActiveRequestion(false);
+        System.out.println("Deletado com sucesso.\n");
+        requestionRepository.save(req);
     }
+
+
+
 
     public RequestionResponse update(Long id, RequestionRequest request) {
         Requestion req = requestionRepository.findById(id)
@@ -99,6 +107,8 @@ public class RequestionService {
         req.setLocation(location);
 
         Requestion updated = requestionRepository.save(req);
+
+        System.out.println("Atualizado com sucesso.\n");
 
         return new RequestionResponse(
                 updated.getTitle(),

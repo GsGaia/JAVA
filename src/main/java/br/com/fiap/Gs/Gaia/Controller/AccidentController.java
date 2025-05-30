@@ -26,7 +26,7 @@ public class AccidentController {
 
     @GetMapping
     public ResponseEntity<List<AccidentResponse>> getAll() {
-        return ResponseEntity.ok(service.listAll());
+        return ResponseEntity.ok(service.getAll());
     }
 
     @GetMapping("/{id}")
@@ -40,8 +40,9 @@ public class AccidentController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id) {
+    public ResponseEntity<String> delete(@PathVariable Long id) {
         service.delete(id);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok("Acidente deletado com sucesso.");
     }
+
 }

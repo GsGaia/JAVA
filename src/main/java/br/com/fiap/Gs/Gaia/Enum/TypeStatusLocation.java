@@ -4,5 +4,6 @@ public enum TypeStatusLocation {
     BOM,
     NECESSITA_AJUDA,
     EMERGENCIA,
-    SEM_INFORMACAO
+    SEM_INFORMACAO,
+    FINALIZADA
 }

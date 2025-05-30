@@ -2,6 +2,7 @@ package br.com.fiap.Gs.Gaia.Dto;
 
 import br.com.fiap.Gs.Gaia.Enum.TypeStation;
 import br.com.fiap.Gs.Gaia.Enum.TypeStatusLocation;
+import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -24,6 +25,10 @@ public class LocationRequest {
 
     @NotNull
     private TypeStatusLocation statusLocation;
+
+    @Column(name = "active")
+    private Boolean active = true;
+
 
     public String getCity() {
         return city;
@@ -63,5 +68,13 @@ public class LocationRequest {
 
     public void setStatusLocation(TypeStatusLocation statusLocation) {
         this.statusLocation = statusLocation;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
     }
 }

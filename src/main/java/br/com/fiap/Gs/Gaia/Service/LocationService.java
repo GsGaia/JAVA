@@ -3,6 +3,8 @@ package br.com.fiap.Gs.Gaia.Service;
 import br.com.fiap.Gs.Gaia.Dto.LocationRequest;
 import br.com.fiap.Gs.Gaia.Dto.LocationResponse;
 import br.com.fiap.Gs.Gaia.Dto.RequestionResponse;
+import br.com.fiap.Gs.Gaia.Enum.TypeStation;
+import br.com.fiap.Gs.Gaia.Enum.TypeStatusLocation;
 import br.com.fiap.Gs.Gaia.Models.Location;
 import br.com.fiap.Gs.Gaia.Models.Requestion;
 import br.com.fiap.Gs.Gaia.Repository.LocationRepository;
@@ -13,6 +15,7 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -36,72 +39,173 @@ public class LocationService {
         location.setEndAccident(request.getEndAccident());
         location.setState(request.getState());
         location.setStatusLocation(request.getStatusLocation());
+        location.setActive(request.getActive());
 
         Location saved = locationRepository.save(location);
 
+        System.out.println("Create com sucesso.");
+
         return new LocationResponse(
+                saved.getIdLocation(),
+                saved.getState(),
                 saved.getCity(),
                 saved.getStartAccident(),
                 saved.getEndAccident(),
-                saved.getState(),
-                saved.getStatusLocation()
+                saved.getStatusLocation(),
+                saved.getActive(),
+                saved.getRequestions(),
+                saved.getAccident()
         );
+
     }
 
     public List<LocationResponse> getAll() {
+        System.out.println("GetAll com sucesso.");
         return locationRepository.findAll().stream()
                 .map(loc -> new LocationResponse(
+                        loc.getIdLocation(),
+                        loc.getState(),
                         loc.getCity(),
                         loc.getStartAccident(),
                         loc.getEndAccident(),
-                        loc.getState(),
-                        loc.getStatusLocation()
-                )).collect(Collectors.toList());
+                        loc.getStatusLocation(),
+                        loc.getActive(),
+                        loc.getRequestions(),
+                        loc.getAccident()
+                ))
+                .collect(Collectors.toList());
     }
 
     public Optional<LocationResponse> getById(Long id) {
+        System.out.println("GetById com sucesso.");
         return locationRepository.findById(id)
                 .map(loc -> new LocationResponse(
+                        loc.getIdLocation(),
+                        loc.getState(),
                         loc.getCity(),
                         loc.getStartAccident(),
                         loc.getEndAccident(),
-                        loc.getState(),
-                        loc.getStatusLocation()
+                        loc.getStatusLocation(),
+                        loc.getActive(),
+                        loc.getRequestions(),
+                        loc.getAccident()
                 ));
     }
 
     @Transactional
     public void delete(Long id) {
-        Location location = locationRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Localização com ID " + id + " não encontrada."));
+        Location location = locationRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Localização com ID " + id + " não encontrada."));
 
         List<Requestion> relacionadas = requestionRepository.findByLocation(location);
         for (Requestion r : relacionadas) {
             r.setLocation(null);
         }
-
+        System.out.println("Delete com sucesso da Location.");
         locationRepository.delete(location);
     }
 
+    public LocationResponse toggleActive(Long id) {
+        Location location = locationRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Location not found with ID: " + id));
 
-    public LocationResponse update(Long id, LocationRequest request) {
-        Location location = locationRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Localização não encontrada"));
+        boolean isActive = Boolean.TRUE.equals(location.getActive());
 
-        location.setCity(request.getCity());
-        location.setStartAccident(request.getStartAccident());
-        location.setEndAccident(request.getEndAccident());
-        location.setState(request.getState());
-        location.setStatusLocation(request.getStatusLocation());
+        location.setActive(!isActive);
+        location.setStatusLocation(isActive ? TypeStatusLocation.FINALIZADA : TypeStatusLocation.BOM);
 
-        Location updated = locationRepository.save(location);
+        Location saved = locationRepository.save(location);
 
         return new LocationResponse(
-                updated.getCity(),
-                updated.getStartAccident(),
-                updated.getEndAccident(),
-                updated.getState(),
-                updated.getStatusLocation()
+                saved.getIdLocation(),
+                saved.getState(),
+                saved.getCity(),
+                saved.getStartAccident(),
+                saved.getEndAccident(),
+                saved.getStatusLocation(),
+                saved.getActive(),
+                saved.getRequestions(),
+                saved.getAccident()
         );
     }
+
+    public LocationResponse updateStatus(Long id, TypeStatusLocation status) {
+        Location location = locationRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Location not found with ID: " + id));
+
+        location.setStatusLocation(status);
+
+        Location saved = locationRepository.save(location);
+
+        return new LocationResponse(
+                saved.getIdLocation(),
+                saved.getState(),
+                saved.getCity(),
+                saved.getStartAccident(),
+                saved.getEndAccident(),
+                saved.getStatusLocation(),
+                saved.getActive(),
+                saved.getRequestions(),
+                saved.getAccident()
+        );
+    }
+
+    public List<LocationResponse> getAtivos() {
+        return locationRepository.findByActiveTrue().stream()
+                .map(loc -> new LocationResponse(
+                        loc.getIdLocation(),
+                        loc.getState(),
+                        loc.getCity(),
+                        loc.getStartAccident(),
+                        loc.getEndAccident(),
+                        loc.getStatusLocation(),
+                        loc.getActive(),
+                        loc.getRequestions(),
+                        loc.getAccident()
+                ))
+                .collect(Collectors.toList());
+    }
+
+    public LocationResponse updateStateAndCity(Long id, String city, TypeStation state) {
+        Location location = locationRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Location not found with ID: " + id));
+
+        location.setCity(city);
+        location.setState(state);
+
+        Location saved = locationRepository.save(location);
+
+        return new LocationResponse(
+                saved.getIdLocation(),
+                saved.getState(),
+                saved.getCity(),
+                saved.getStartAccident(),
+                saved.getEndAccident(),
+                saved.getStatusLocation(),
+                saved.getActive(),
+                saved.getRequestions(),
+                saved.getAccident()
+        );
+    }
+
+    public LocationResponse updateDates(Long id, LocalDate start, LocalDate end) {
+        Location location = locationRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Location not found with ID: " + id));
+
+        location.setStartAccident(start);
+        location.setEndAccident(end);
+
+        Location saved = locationRepository.save(location);
+
+        return new LocationResponse(
+                saved.getIdLocation(),
+                saved.getState(),
+                saved.getCity(),
+                saved.getStartAccident(),
+                saved.getEndAccident(),
+                saved.getStatusLocation(),
+                saved.getActive(),
+                saved.getRequestions(),
+                saved.getAccident()
+        );
+    }
+
 }
