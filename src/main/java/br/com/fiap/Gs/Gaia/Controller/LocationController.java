@@ -75,4 +75,9 @@ public class LocationController {
         return ResponseEntity.ok(locationService.updateStateAndCity(id, city, state));
     }
 
+    @GetMapping("/ativos")
+    public ResponseEntity<List<LocationResponse>> getAtivos() {
+        return ResponseEntity.ok(locationService.getAtivos());
+    }
+
 }

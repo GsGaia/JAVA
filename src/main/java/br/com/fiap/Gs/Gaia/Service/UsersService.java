@@ -2,6 +2,7 @@ package br.com.fiap.Gs.Gaia.Service;
 
 import br.com.fiap.Gs.Gaia.Dto.UsersRequest;
 import br.com.fiap.Gs.Gaia.Dto.UsersResponse;
+import br.com.fiap.Gs.Gaia.Enum.TypeUsers;
 import br.com.fiap.Gs.Gaia.Models.Users;
 import br.com.fiap.Gs.Gaia.Repository.UsersRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -221,4 +222,26 @@ public class UsersService {
         );
     }
 
+    public UsersResponse updateRole(Long id, TypeUsers newRole) {
+        Users user = usersRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Usuário não encontrado"));
+
+        user.setRole(newRole);
+        Users updated = usersRepository.save(user);
+
+        return toResponse(updated);
+    }
+
+    private UsersResponse toResponse(Users user) {
+        return new UsersResponse(
+                user.getIdUser(),
+                user.getName(),
+                user.getEmail(),
+                user.getPassword(),
+                user.getCpf(),
+                user.getCreationDate(),
+                user.getRole(),
+                user.getActiveUser(),
+                user.getRequestions()
+        );
+    }
 }

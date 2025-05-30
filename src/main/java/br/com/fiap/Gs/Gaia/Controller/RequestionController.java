@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -34,14 +35,32 @@ public class RequestionController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<RequestionResponse> update(@PathVariable Long id, @RequestBody @Valid RequestionRequest request) {
-        return ResponseEntity.ok(requestionService.update(id, request));
-    }
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         requestionService.delete(id);
         return ResponseEntity.noContent().build();
     }
+
+    @PutMapping("/{id}/title")
+    public ResponseEntity<RequestionResponse> updateTitle(@PathVariable Long id, @RequestParam String title) {
+        return ResponseEntity.ok(requestionService.updateTitle(id, title));
+    }
+
+    @PutMapping("/{id}/description")
+    public ResponseEntity<RequestionResponse> updateDescription(@PathVariable Long id, @RequestParam String description) {
+        return ResponseEntity.ok(requestionService.updateDescription(id, description));
+    }
+
+    @PutMapping("/{id}/unit")
+    public ResponseEntity<RequestionResponse> updateUnit(@PathVariable Long id, @RequestParam String unit) {
+        return ResponseEntity.ok(requestionService.updateUnit(id, unit));
+    }
+
+    @PutMapping("/{id}/data")
+    public ResponseEntity<RequestionResponse> updateData(@PathVariable Long id, @RequestParam LocalDate dataDaRequisicao) {
+        return ResponseEntity.ok(requestionService.updateDataDaRequisicao(id, dataDaRequisicao));
+    }
+
 }

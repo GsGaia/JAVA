@@ -12,6 +12,7 @@ import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -87,34 +88,44 @@ public class RequestionService {
     }
 
 
-
-
-    public RequestionResponse update(Long id, RequestionRequest request) {
+    public RequestionResponse updateTitle(Long id, String title) {
         Requestion req = requestionRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Requisição não encontrada"));
 
-        Users user = usersRepository.findById(request.getUserId())
-                .orElseThrow(() -> new EntityNotFoundException("Usuário não encontrado"));
-
-        Location location = locationRepository.findById(request.getLocationId())
-                .orElseThrow(() -> new EntityNotFoundException("Localização não encontrada"));
-
-        req.setTitle(request.getTitle());
-        req.setDescription(request.getDescription());
-        req.setUnit(request.getUnit());
-        req.setDataDaRequisicao(request.getDataDaRequisicao());
-        req.setUsers(user);
-        req.setLocation(location);
-
+        req.setTitle(title);
         Requestion updated = requestionRepository.save(req);
 
-        System.out.println("Atualizado com sucesso.\n");
-
-        return new RequestionResponse(
-                updated.getTitle(),
-                updated.getDescription(),
-                updated.getUnit(),
-                updated.getDataDaRequisicao()
-        );
+        return new RequestionResponse(updated.getTitle(), updated.getDescription(), updated.getUnit(), updated.getDataDaRequisicao());
     }
+
+    public RequestionResponse updateDescription(Long id, String description) {
+        Requestion req = requestionRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Requisição não encontrada"));
+
+        req.setDescription(description);
+        Requestion updated = requestionRepository.save(req);
+
+        return new RequestionResponse(updated.getTitle(), updated.getDescription(), updated.getUnit(), updated.getDataDaRequisicao());
+    }
+
+    public RequestionResponse updateUnit(Long id, String unit) {
+        Requestion req = requestionRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Requisição não encontrada"));
+
+        req.setUnit(unit);
+        Requestion updated = requestionRepository.save(req);
+
+        return new RequestionResponse(updated.getTitle(), updated.getDescription(), updated.getUnit(), updated.getDataDaRequisicao());
+    }
+
+    public RequestionResponse updateDataDaRequisicao(Long id, LocalDate dataDaRequisicao) {
+        Requestion req = requestionRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Requisição não encontrada"));
+
+        req.setDataDaRequisicao(dataDaRequisicao);
+        Requestion updated = requestionRepository.save(req);
+
+        return new RequestionResponse(updated.getTitle(), updated.getDescription(), updated.getUnit(), updated.getDataDaRequisicao());
+    }
+
 }

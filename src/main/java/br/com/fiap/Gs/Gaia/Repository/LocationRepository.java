@@ -9,5 +9,4 @@ import java.util.List;
 @Repository
 public interface LocationRepository extends JpaRepository<Location, Long> {
     List<Location> findByActiveTrue();
-
 }

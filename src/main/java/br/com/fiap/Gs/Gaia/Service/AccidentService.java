@@ -2,6 +2,8 @@ package br.com.fiap.Gs.Gaia.Service;
 
 import br.com.fiap.Gs.Gaia.Dto.AccidentRequest;
 import br.com.fiap.Gs.Gaia.Dto.AccidentResponse;
+import br.com.fiap.Gs.Gaia.Enum.TypeAccident;
+import br.com.fiap.Gs.Gaia.Enum.TypeSeverity;
 import br.com.fiap.Gs.Gaia.Models.Accident;
 import br.com.fiap.Gs.Gaia.Models.Location;
 import br.com.fiap.Gs.Gaia.Repository.AccidentRepository;
@@ -10,6 +12,7 @@ import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
@@ -75,6 +78,39 @@ public class AccidentService {
         System.out.println("Delete com sucesso.");
         accidentRepository.deleteById(id);
     }
+
+    public AccidentResponse updateTypeAccident(Long id, TypeAccident typeAccident) {
+        Accident accident = accidentRepository.findById(id)
+                .orElseThrow(() -> new NoSuchElementException("Accident not found"));
+
+        accident.setTypeAccident(typeAccident);
+        return toResponse(accidentRepository.save(accident));
+    }
+
+    public AccidentResponse updateSeverityAccident(Long id, TypeSeverity severityAccident) {
+        Accident accident = accidentRepository.findById(id)
+                .orElseThrow(() -> new NoSuchElementException("Accident not found"));
+
+        accident.setSeverityAccident(severityAccident);
+        return toResponse(accidentRepository.save(accident));
+    }
+
+    public AccidentResponse updateDateAccidentStart(Long id, LocalDate dateAccidentStart) {
+        Accident accident = accidentRepository.findById(id)
+                .orElseThrow(() -> new NoSuchElementException("Accident not found"));
+
+        accident.setDateAccidentStart(dateAccidentStart);
+        return toResponse(accidentRepository.save(accident));
+    }
+
+    public AccidentResponse updateDateAccidentEnd(Long id, LocalDate dateAccidentEnd) {
+        Accident accident = accidentRepository.findById(id)
+                .orElseThrow(() -> new NoSuchElementException("Accident not found"));
+
+        accident.setDateAccidentEnd(dateAccidentEnd);
+        return toResponse(accidentRepository.save(accident));
+    }
+
 
     private AccidentResponse toResponse(Accident accident) {
         return new AccidentResponse(
