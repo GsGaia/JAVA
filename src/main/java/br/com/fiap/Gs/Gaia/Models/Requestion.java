@@ -24,4 +24,82 @@ public class Requestion {
     @ManyToOne
     @JoinColumn(name = "id_location")
     private Location location;
+
+    public Requestion() {
+    }
+
+    public Requestion(Long idRequestion, String title, String description, String unit, LocalDate dataDaRequisicao, Boolean activeRequestion, Users users, Location location) {
+        this.idRequestion = idRequestion;
+        this.title = title;
+        this.description = description;
+        this.unit = unit;
+        this.dataDaRequisicao = dataDaRequisicao;
+        this.activeRequestion = activeRequestion;
+        this.users = users;
+        this.location = location;
+    }
+
+    public Long getIdRequestion() {
+        return idRequestion;
+    }
+
+    public void setIdRequestion(Long idRequestion) {
+        this.idRequestion = idRequestion;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getUnit() {
+        return unit;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
+    }
+
+    public LocalDate getDataDaRequisicao() {
+        return dataDaRequisicao;
+    }
+
+    public void setDataDaRequisicao(LocalDate dataDaRequisicao) {
+        this.dataDaRequisicao = dataDaRequisicao;
+    }
+
+    public Boolean getActiveRequestion() {
+        return activeRequestion;
+    }
+
+    public void setActiveRequestion(Boolean activeRequestion) {
+        this.activeRequestion = activeRequestion;
+    }
+
+    public Users getUsers() {
+        return users;
+    }
+
+    public void setUsers(Users users) {
+        this.users = users;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
 }

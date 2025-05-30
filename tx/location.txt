@@ -1,0 +1,7 @@
+{
+  "city": "Rio Branco",
+  "startAccident": "2025-05-30",
+  "endAccident": "2025-05-30",
+  "state": "AC",
+  "statusLocation": "BOM"
+}

@@ -4,11 +4,14 @@ import br.com.fiap.Gs.Gaia.Dto.UsersRequest;
 import br.com.fiap.Gs.Gaia.Dto.UsersResponse;
 import br.com.fiap.Gs.Gaia.Models.Users;
 import br.com.fiap.Gs.Gaia.Repository.UsersRepository;
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -23,6 +26,7 @@ public class UsersService {
     public UsersResponse create(@Valid UsersRequest usersRequest) {
         boolean emailExistente = usersRepository.findAll().stream().anyMatch(u -> u.getClass().equals(usersRequest.getClass()));
 
+
         if (emailExistente) {
             throw new IllegalArgumentException("Email já cadastrado.");
         }
@@ -30,13 +34,13 @@ public class UsersService {
         Users user = new Users(
                 null,
                 usersRequest.getName(),
-                usersRequest.getClass().getSimpleName(),
+                usersRequest.getEmail(),
                 usersRequest.getPassword(),
                 usersRequest.getCpf(),
                 usersRequest.getCreationDate().atStartOfDay(),
                 usersRequest.getRole(),
                 usersRequest.getActiveUser(),
-                null
+                usersRequest.getRequestions()
         );
 
         Users savedUser = usersRepository.save(user);
@@ -44,7 +48,7 @@ public class UsersService {
         return new UsersResponse(
                 savedUser.getIdUser(),
                 savedUser.getName(),
-                savedUser.getClass().getSimpleName(),
+                savedUser.getEmail(),
                 savedUser.getPassword(),
                 savedUser.getCpf(),
                 savedUser.getCreationDate(),
@@ -53,6 +57,7 @@ public class UsersService {
                 savedUser.getRequestions()
         );
     }
+
 
     public List<UsersResponse> getAllUsers() {
         List<Users> usersList = usersRepository.findAll();
@@ -87,10 +92,13 @@ public class UsersService {
                 ));
     }
 
-    public void deleteUserById(Long id) {
+    public void delete(Long id) {
+        boolean exists = usersRepository.existsById(id);
+        if (!exists) {
+            throw new EntityNotFoundException("Usuário com ID " + id + " não encontrado.");
+        }
         usersRepository.deleteById(id);
     }
-
 
     public UsersResponse updateUser(Long id, UsersRequest usersRequest) {
         Users user = usersRepository.findById(id)

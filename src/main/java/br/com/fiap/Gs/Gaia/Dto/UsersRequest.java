@@ -28,7 +28,6 @@ public class UsersRequest {
     @CPF
     private String cpf;
 
-    @FutureOrPresent
     @Column(name = "creation_date")
     private LocalDate creationDate;
 
@@ -38,19 +37,6 @@ public class UsersRequest {
 
     @NotNull(message = "activeUser não pode ser nulo")
     private Boolean activeUser;
-
-    public UsersRequest() {
-    }
-
-    public UsersRequest(String name, String email, String password, String cpf, LocalDate creationDate, TypeUsers role, Boolean activeUser) {
-        this.name = name;
-        this.email = email;
-        this.password = password;
-        this.cpf = cpf;
-        this.creationDate = creationDate;
-        this.role = role;
-        this.activeUser = activeUser;
-    }
 
     public String getName() {
         return name;
@@ -108,7 +94,14 @@ public class UsersRequest {
         this.activeUser = activeUser;
     }
 
+    private List<Requestion> requestions;
+
     public List<Requestion> getRequestions() {
-        return getRequestions();
+        return requestions;
     }
+
+    public void setRequestions(List<Requestion> requestions) {
+        this.requestions = requestions;
+    }
+
 }
