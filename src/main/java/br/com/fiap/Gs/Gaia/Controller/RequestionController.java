@@ -59,8 +59,8 @@ public class RequestionController {
     }
 
     @PutMapping("/{id}/data")
-    public ResponseEntity<RequestionResponse> updateData(@PathVariable Long id, @RequestParam LocalDate dataDaRequisicao) {
-        return ResponseEntity.ok(requestionService.updateDataDaRequisicao(id, dataDaRequisicao));
+    public ResponseEntity<RequestionResponse> updateRequestDate(@PathVariable Long id, @RequestParam LocalDate RequestDate) {
+        return ResponseEntity.ok(requestionService.updateRequestDate(id, RequestDate));
     }
 
 }

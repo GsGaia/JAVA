@@ -13,7 +13,7 @@ public class Requestion {
     private String title;
     private String description;
     private String unit;
-    private LocalDate dataDaRequisicao;
+    private LocalDate RequestDate;
     private Boolean activeRequestion;
 
     @ManyToOne
@@ -27,12 +27,12 @@ public class Requestion {
     public Requestion() {
     }
 
-    public Requestion(Long idRequestion, String title, String description, String unit, LocalDate dataDaRequisicao, Boolean activeRequestion, Users users, Location location) {
+    public Requestion(Long idRequestion, String title, String description, String unit, LocalDate RequestDate, Boolean activeRequestion, Users users, Location location) {
         this.idRequestion = idRequestion;
         this.title = title;
         this.description = description;
         this.unit = unit;
-        this.dataDaRequisicao = dataDaRequisicao;
+        this.RequestDate = RequestDate;
         this.activeRequestion = activeRequestion;
         this.users = users;
         this.location = location;
@@ -70,12 +70,12 @@ public class Requestion {
         this.unit = unit;
     }
 
-    public LocalDate getDataDaRequisicao() {
-        return dataDaRequisicao;
+    public LocalDate getRequestDate() {
+        return RequestDate;
     }
 
-    public void setDataDaRequisicao(LocalDate dataDaRequisicao) {
-        this.dataDaRequisicao = dataDaRequisicao;
+    public void setRequestDate(LocalDate RequestDate) {
+        this.RequestDate = RequestDate;
     }
 
     public Boolean getActiveRequestion() {

@@ -1,4 +1,0 @@
-1. Fazer gets por nome, id de coisas ativas
-2. fazer validadores por regex
-3. Mudar no Requestion para RequestDate
-4. Api Security

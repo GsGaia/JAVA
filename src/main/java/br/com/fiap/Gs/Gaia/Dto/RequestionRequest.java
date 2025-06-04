@@ -16,7 +16,7 @@ public class RequestionRequest {
     private String unit;
 
     @NotNull
-    private LocalDate dataDaRequisicao;
+    private LocalDate RequestDate;
 
     @NotNull
     private Long userId;
@@ -33,8 +33,8 @@ public class RequestionRequest {
     public String getUnit() { return unit; }
     public void setUnit(String unit) { this.unit = unit; }
 
-    public LocalDate getDataDaRequisicao() { return dataDaRequisicao; }
-    public void setDataDaRequisicao(LocalDate dataDaRequisicao) { this.dataDaRequisicao = dataDaRequisicao; }
+    public LocalDate getRequestDate() { return RequestDate; }
+    public void setRequestDate(LocalDate RequestDate) { this.RequestDate = RequestDate; }
 
     public Long getUserId() { return userId; }
     public void setUserId(Long userId) { this.userId = userId; }

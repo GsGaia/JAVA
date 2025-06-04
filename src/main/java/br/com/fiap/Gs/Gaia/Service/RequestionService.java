@@ -38,7 +38,7 @@ public class RequestionService {
         req.setTitle(request.getTitle());
         req.setDescription(request.getDescription());
         req.setUnit(request.getUnit());
-        req.setDataDaRequisicao(request.getDataDaRequisicao());
+        req.setRequestDate(request.getRequestDate());
         req.setActiveRequestion(true);
         req.setUsers(user);
         req.setLocation(location);
@@ -51,7 +51,7 @@ public class RequestionService {
                 saved.getTitle(),
                 saved.getDescription(),
                 saved.getUnit(),
-                saved.getDataDaRequisicao()
+                saved.getRequestDate()
         );
     }
 
@@ -62,7 +62,7 @@ public class RequestionService {
                         req.getTitle(),
                         req.getDescription(),
                         req.getUnit(),
-                        req.getDataDaRequisicao()
+                        req.getRequestDate()
                 )).collect(Collectors.toList());
     }
 
@@ -74,7 +74,7 @@ public class RequestionService {
                         req.getTitle(),
                         req.getDescription(),
                         req.getUnit(),
-                        req.getDataDaRequisicao()
+                        req.getRequestDate()
                 ));
     }
 
@@ -95,7 +95,7 @@ public class RequestionService {
         req.setTitle(title);
         Requestion updated = requestionRepository.save(req);
 
-        return new RequestionResponse(updated.getTitle(), updated.getDescription(), updated.getUnit(), updated.getDataDaRequisicao());
+        return new RequestionResponse(updated.getTitle(), updated.getDescription(), updated.getUnit(), updated.getRequestDate());
     }
 
     public RequestionResponse updateDescription(Long id, String description) {
@@ -105,7 +105,7 @@ public class RequestionService {
         req.setDescription(description);
         Requestion updated = requestionRepository.save(req);
 
-        return new RequestionResponse(updated.getTitle(), updated.getDescription(), updated.getUnit(), updated.getDataDaRequisicao());
+        return new RequestionResponse(updated.getTitle(), updated.getDescription(), updated.getUnit(), updated.getRequestDate());
     }
 
     public RequestionResponse updateUnit(Long id, String unit) {
@@ -115,17 +115,17 @@ public class RequestionService {
         req.setUnit(unit);
         Requestion updated = requestionRepository.save(req);
 
-        return new RequestionResponse(updated.getTitle(), updated.getDescription(), updated.getUnit(), updated.getDataDaRequisicao());
+        return new RequestionResponse(updated.getTitle(), updated.getDescription(), updated.getUnit(), updated.getRequestDate());
     }
 
-    public RequestionResponse updateDataDaRequisicao(Long id, LocalDate dataDaRequisicao) {
+    public RequestionResponse updateRequestDate(Long id, LocalDate RequestDate) {
         Requestion req = requestionRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Requisição não encontrada"));
 
-        req.setDataDaRequisicao(dataDaRequisicao);
+        req.setRequestDate(RequestDate);
         Requestion updated = requestionRepository.save(req);
 
-        return new RequestionResponse(updated.getTitle(), updated.getDescription(), updated.getUnit(), updated.getDataDaRequisicao());
+        return new RequestionResponse(updated.getTitle(), updated.getDescription(), updated.getUnit(), updated.getRequestDate());
     }
 
 }
