@@ -1,0 +1,10 @@
+# Ignorar arquivo de variáveis de ambiente
+.env
+
+# Ignorar arquivos temporários do sistema
+*.log
+*.tmp
+
+# Ignorar build do Gradle (opcional)
+build/
+.env
