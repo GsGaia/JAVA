@@ -3,7 +3,6 @@ package br.com.fiap.Gs.Gaia.Models;
 import br.com.fiap.Gs.Gaia.Enum.TypeAccident;
 import br.com.fiap.Gs.Gaia.Enum.TypeSeverity;
 import jakarta.persistence.*;
-
 import java.time.LocalDate;
 
 @Entity

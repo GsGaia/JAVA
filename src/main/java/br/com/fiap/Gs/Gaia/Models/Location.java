@@ -3,7 +3,6 @@ package br.com.fiap.Gs.Gaia.Models;
 import br.com.fiap.Gs.Gaia.Enum.TypeStation;
 import br.com.fiap.Gs.Gaia.Enum.TypeStatusLocation;
 import jakarta.persistence.*;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
