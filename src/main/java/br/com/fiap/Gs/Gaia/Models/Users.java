@@ -1,6 +1,7 @@
 package br.com.fiap.Gs.Gaia.Models;
 
 import br.com.fiap.Gs.Gaia.Enum.TypeUsers;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -27,6 +28,7 @@ public class Users implements UserDetails {
     private Boolean activeUser;
 
     @OneToMany(mappedBy = "users", cascade = CascadeType.PERSIST)
+    @JsonManagedReference("user-requestion")
     private List<Requestion> requestions = new ArrayList<>();
 
     public Users() {

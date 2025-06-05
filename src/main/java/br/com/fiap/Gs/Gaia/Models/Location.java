@@ -2,6 +2,7 @@ package br.com.fiap.Gs.Gaia.Models;
 
 import br.com.fiap.Gs.Gaia.Enum.TypeStation;
 import br.com.fiap.Gs.Gaia.Enum.TypeStatusLocation;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -22,9 +23,11 @@ public class Location {
     private Boolean active;
 
     @OneToMany(mappedBy = "location", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference("location-requestion")
     private List<Requestion> requestions = new ArrayList<>();
 
     @OneToOne(mappedBy = "location", cascade = CascadeType.ALL)
+    @JsonManagedReference("location-accident")
     private Accident accident;
 
     public Location() {

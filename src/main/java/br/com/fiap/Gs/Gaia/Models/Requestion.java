@@ -1,5 +1,6 @@
 package br.com.fiap.Gs.Gaia.Models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 
@@ -18,10 +19,12 @@ public class Requestion {
 
     @ManyToOne
     @JoinColumn(name = "id_users")
+    @JsonBackReference("user-requestion")
     private Users users;
 
     @ManyToOne
     @JoinColumn(name = "id_location")
+    @JsonBackReference("location-requestion")
     private Location location;
 
     public Requestion() {
