@@ -82,7 +82,7 @@ public class RequestionService {
         Requestion req = requestionRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Requisição não encontrada"));
 
-        req.setActiveRequestion(false);
+        //req.setActiveRequestion(false);
         System.out.println("Deletado com sucesso.\n");
         requestionRepository.save(req);
     }
