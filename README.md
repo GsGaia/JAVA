@@ -1,5 +1,4 @@
 <div align="center">
-  <img src="https://i.imgur.com/g0z5j4k.png" alt="Logo do Projeto Gaia" width="150"/>
   <h1>Projeto Gaia</h1>
   <p><strong>API para Monitoramento e Gerenciamento de Eventos Climáticos Extremos</strong></p>
   <p>
