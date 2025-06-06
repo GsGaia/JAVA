@@ -14,6 +14,7 @@
 
 ## 📋 Tabela de Conteúdos
 
+<<<<<<< HEAD
 - [📋 Tabela de Conteúdos](#-tabela-de-conteúdos)
 - [🌍 Visão Geral](#-visão-geral)
 - [✨ Funcionalidades Principais](#-funcionalidades-principais)
@@ -299,6 +300,22 @@ A seguir, exemplos de JSON para os principais endpoints de criação (`POST`). V
   - [Localizações (Locations)](#localizações-locations-1)
   - [Acidentes (Accidents)](#acidentes-accidents-1)
   - [Requisições (Requestions)](#requisições-requestions-1)
+=======
+1.  [Visão Geral](#-visão-geral)
+2.  [Funcionalidades Principais](#-funcionalidades-principais)
+3.  [Arquitetura do Projeto](#-arquitetura-do-projeto)
+4.  [Tecnologias Utilizadas](#-tecnologias-utilizadas)
+5.  [Como Executar o Projeto](#-como-executar-o-projeto)
+    - [Pré-requisitos](#pré-requisitos)
+    - [Configuração do Ambiente](#configuração-do-ambiente)
+    - [Execução com Docker](#execução-com-docker)
+6.  [Endpoints da API e Exemplos de JSON](#-endpoints-da-api-e-exemplos-de-json)
+    - [Autenticação](#autenticação)
+    - [Usuários (Users)](#usuários-users)
+    - [Localizações (Locations)](#localizações-locations)
+    - [Acidentes (Accidents)](#acidentes-accidents)
+    - [Requisições (Requestions)](#requisições-requestions)
+>>>>>>> 6ec6937373447efee1606566847b47676395356c
 
 ---
 
