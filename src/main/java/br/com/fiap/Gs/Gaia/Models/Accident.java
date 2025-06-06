@@ -20,7 +20,7 @@ public class Accident {
     private TypeAccident typeAccident;
     private TypeSeverity severityAccident;
 
-    private Long locationId; // novo campo
+    private Long locationId;
 
     @OneToOne
     @JoinColumn(name = "id_location")

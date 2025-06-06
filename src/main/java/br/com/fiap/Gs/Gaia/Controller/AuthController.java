@@ -30,9 +30,6 @@ public class AuthController {
     @Autowired
     private TokenService tokenService;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody @Valid AuthDTO authDTO) {
         var authenticationToken = new UsernamePasswordAuthenticationToken(authDTO.email(), authDTO.password());
@@ -52,7 +49,7 @@ public class AuthController {
         newUser.setName(registerDTO.name());
         newUser.setCpf(registerDTO.cpf());
         newUser.setEmail(registerDTO.email());
-        newUser.setPassword(passwordEncoder.encode(registerDTO.password()));
+        newUser.setPassword(registerDTO.password());
         newUser.setRole(registerDTO.role());
         newUser.setCreationDate(LocalDateTime.now());
         newUser.setActiveUser(true);

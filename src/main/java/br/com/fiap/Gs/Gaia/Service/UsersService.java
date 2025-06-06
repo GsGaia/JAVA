@@ -53,17 +53,7 @@ public class UsersService {
 
         Users savedUser = usersRepository.save(user);
 
-        return new UsersResponse(
-                savedUser.getIdUser(),
-                savedUser.getName(),
-                savedUser.getEmail(),
-                savedUser.getPassword(),
-                savedUser.getCpf(),
-                savedUser.getCreationDate(),
-                savedUser.getRole(),
-                savedUser.getActiveUser(),
-                savedUser.getRequestions()
-        );
+        return toResponse(savedUser);
     }
 
 
@@ -123,42 +113,16 @@ public class UsersService {
 
         Users updatedUser = usersRepository.save(user);
 
-        System.out.println("Update com sucesso.\n");
-
-        return new UsersResponse(
-                updatedUser.getIdUser(),
-                updatedUser.getName(),
-                updatedUser.getEmail(),
-                updatedUser.getPassword(),
-                updatedUser.getCpf(),
-                updatedUser.getCreationDate(),
-                updatedUser.getRole(),
-                updatedUser.getActiveUser(),
-                updatedUser.getRequestions()
-        );
+        return toResponse(updatedUser);
     }
 
     public UsersResponse toggleActive(Long id) {
         Users user = usersRepository.findById(id).orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
-
-        user.setActiveUser(!user.getActiveUser());  // inverte o valor
-
+        user.setActiveUser(!user.getActiveUser());
         Users updatedUser = usersRepository.save(user);
-
-        System.out.println("Desativado com sucesso.\n");
-
-        return new UsersResponse(
-                updatedUser.getIdUser(),
-                updatedUser.getName(),
-                updatedUser.getEmail(),
-                updatedUser.getPassword(),
-                updatedUser.getCpf(),
-                updatedUser.getCreationDate(),
-                updatedUser.getRole(),
-                updatedUser.getActiveUser(),
-                updatedUser.getRequestions()
-        );
+        return toResponse(updatedUser);
     }
+
     public List<UsersResponse> getAtivos() {
         List<Users> usersList = usersRepository.findAll().stream()
                 .filter(Users::getActiveUser)
@@ -189,17 +153,7 @@ public class UsersService {
         user.setEmail(newEmail);
         Users updated = usersRepository.save(user);
 
-        return new UsersResponse(
-                updated.getIdUser(),
-                updated.getName(),
-                updated.getEmail(),
-                updated.getPassword(),
-                updated.getCpf(),
-                updated.getCreationDate(),
-                updated.getRole(),
-                updated.getActiveUser(),
-                updated.getRequestions()
-        );
+        return toResponse(updated);
     }
 
     public UsersResponse updateSenha(Long id, String newPassword) {
@@ -209,17 +163,7 @@ public class UsersService {
         user.setPassword(newPassword);
         Users updated = usersRepository.save(user);
 
-        return new UsersResponse(
-                updated.getIdUser(),
-                updated.getName(),
-                updated.getEmail(),
-                updated.getPassword(),
-                updated.getCpf(),
-                updated.getCreationDate(),
-                updated.getRole(),
-                updated.getActiveUser(),
-                updated.getRequestions()
-        );
+        return toResponse(updated);
     }
 
     public UsersResponse updateRole(Long id, TypeUsers newRole) {
