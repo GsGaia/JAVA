@@ -2,6 +2,7 @@ package br.com.fiap.Gs.Gaia.Models;
 
 import br.com.fiap.Gs.Gaia.Enum.TypeAccident;
 import br.com.fiap.Gs.Gaia.Enum.TypeSeverity;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 
@@ -23,6 +24,7 @@ public class Accident {
 
     @OneToOne
     @JoinColumn(name = "id_location")
+    @JsonBackReference("location-accident")
     private Location location;
 
     public Accident() {
