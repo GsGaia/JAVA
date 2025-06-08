@@ -15,35 +15,29 @@
 ## 📋 Tabela de Conteúdos
 
 - [📋 Tabela de Conteúdos](#-tabela-de-conteúdos)
+- [🎥 Demonstração da Solução Completa](#-demonstração-da-solução-completa)
 - [🌍 Visão Geral](#-visão-geral)
 - [✨ Funcionalidades Principais](#-funcionalidades-principais)
 - [🏗️ Arquitetura do Projeto](#️-arquitetura-do-projeto)
 - [🛠️ Tecnologias Utilizadas](#️-tecnologias-utilizadas)
+- [👥 Integrantes](#-integrantes)
 - [🚀 Como Executar o Projeto](#-como-executar-o-projeto)
   - [Pré-requisitos](#pré-requisitos)
   - [Configuração do Ambiente](#configuração-do-ambiente)
-  - [Execução com Docker](#execução-com-docker)
 - [📖 Endpoints da API e Exemplos de JSON](#-endpoints-da-api-e-exemplos-de-json)
   - [Autenticação](#autenticação)
   - [Usuários (Users)](#usuários-users)
   - [Localizações (Locations)](#localizações-locations)
   - [Acidentes (Accidents)](#acidentes-accidents)
   - [Requisições (Requestions)](#requisições-requestions)
-- [📋 Tabela de Conteúdos](#-tabela-de-conteúdos-1)
-- [🌍 Visão Geral](#-visão-geral-1)
-- [✨ Funcionalidades Principais](#-funcionalidades-principais-1)
-- [🏗️ Arquitetura do Projeto](#️-arquitetura-do-projeto-1)
-- [🛠️ Tecnologias Utilizadas](#️-tecnologias-utilizadas-1)
-- [🚀 Como Executar o Projeto](#-como-executar-o-projeto-1)
-  - [Pré-requisitos](#pré-requisitos-1)
-  - [Configuração do Ambiente](#configuração-do-ambiente-1)
-  - [Execução com Docker](#execução-com-docker-1)
-- [📖 Endpoints da API e Exemplos de JSON](#-endpoints-da-api-e-exemplos-de-json-1)
-  - [Autenticação](#autenticação-1)
-  - [Usuários (Users)](#usuários-users-1)
-  - [Localizações (Locations)](#localizações-locations-1)
-  - [Acidentes (Accidents)](#acidentes-accidents-1)
-  - [Requisições (Requestions)](#requisições-requestions-1)
+
+---
+
+## 🎥 Demonstração da Solução Completa
+
+- **[Pitch da Solução](https://www.canva.com/design/DAGJWb25iBw/L6xT_3d-WESf2h-R2ODfbA/edit?utm_content=DAGJWb25iBw&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)**: Apresentação visual e conceitual do projeto.
+- **[Deploy da Aplicação](http://191.234.186.183:8080/swagger-ui/index.html)**: Acesse a API em produção e interaja com os endpoints.
+- **[Vídeo Demonstração](link-para-seu-video-aqui)**: Assista a um tour completo pelas funcionalidades da solução.
 
 ---
 
@@ -91,12 +85,26 @@ A API segue uma arquitetura em camadas para garantir a separação de responsabi
 
 ---
 
+## 👥 Integrantes
+
+**Por favor, preencha com os dados da sua equipe:**
+
+| Nome Completo     | RM      | Turma   |
+| ----------------- | ------- | ------- |
+| [Luiz Eduardo Da Silva Pinto] | [555213 ] | [2TDSPM] |
+| [Eduardo Augusto Pelegrino Einsfeldt] | [556460] | [2TDSPM] |
+| [Murillo Ari Ferreira Sant'Anna] | [557183] | [2TDSPM] |
+
+
+---
+
 ## 🚀 Como Executar o Projeto
 
 ### Pré-requisitos
 
--   [Java 21](https://www.oracle.com/java/technologies/downloads/#java21)
--   [Docker](https://www.docker.com/products/docker-desktop/)
+-   [Java 21](https://www.oracle.com/java/technologies/downloads/#java21) ou superior
+-   [Gradle 8.1.3](https://gradle.org/releases/) ou superior
+-   Um banco de dados PostgreSQL rodando localmente ou em um servidor.
 
 ### Configuração do Ambiente
 
@@ -106,57 +114,26 @@ A API segue uma arquitetura em camadas para garantir a separação de responsabi
     cd seu-repositorio
     ```
 
-2.  **Compile o projeto com Gradle:**
-    Use o Wrapper do Gradle para compilar a aplicação e gerar o arquivo `.jar`. No Windows, use `gradlew.bat build`.
-    ```bash
-    ./gradlew build
-    ```
-    Isso irá gerar o arquivo JAR dentro da pasta `build/libs/`.
-
-### Execução com Docker
-
-Vamos subir os contêineres da aplicação e do banco de dados usando apenas comandos do Docker.
-
-1.  **Crie a rede Docker:**
-    É uma boa prática criar uma rede dedicada para que os contêineres se comuniquem.
-    ```bash
-    docker network create gaia-rede
+2.  **Configure as variáveis de ambiente:**
+    No arquivo `src/main/resources/application.properties`, ajuste as seguintes propriedades para conectar ao seu banco de dados PostgreSQL:
+    ```properties
+    spring.datasource.url=jdbc:postgresql://localhost:5432/seu-banco
+    spring.datasource.username=seu-usuario
+    spring.datasource.password=sua-senha
     ```
 
-2.  **Inicie o contêiner do Banco de Dados (PostgreSQL):**
-    Este comando irá baixar a imagem do Postgres, iniciar o contêiner, conectá-lo à nossa rede e definir as credenciais.
+3.  **Compile e execute o projeto com Gradle:**
+    Use o Wrapper do Gradle para executar a aplicação.
     ```bash
-    docker run -d \
-        --name postgres-db \
-        --network gaia-rede \
-        -p 5432:5432 \
-        -e POSTGRES_DB=gaiadatabase \
-        -e POSTGRES_USER=admin \
-        -e POSTGRES_PASSWORD=admin123 \
-        postgres:13
-    ```
+    # No Linux/macOS
+    ./gradlew bootRun
 
-3.  **Inicie o contêiner da Aplicação Gaia:**
-    Este comando irá construir a imagem da sua aplicação a partir do `Dockerfile` local e iniciar o contêiner, conectando-o ao banco de dados.
-    ```bash
-    # Primeiro, construa a imagem a partir do seu Dockerfile
-    docker build -t gaia-app .
-
-    # Agora, inicie o contêiner com a imagem criada
-    docker run -d \
-        --name gaia-container \
-        --network gaia-rede \
-        -p 8080:8080 \
-        -e SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-db:5432/gaiadatabase \
-        -e SPRING_DATASOURCE_USERNAME=admin \
-        -e SPRING_DATASOURCE_PASSWORD=admin123 \
-        -e JWT_SECRET=sua-chave-secreta-super-longa-e-segura \
-        gaia-app
+    # No Windows
+    gradlew.bat bootRun
     ```
-    
 4.  **Acesse a aplicação:**
-    -   API disponível em: `http://localhost:8080` (localmente) ou `http://191.234.186.183:8080` (pelo IP da VM)
-    -   Documentação Swagger UI: `http://191.234.186.183:8080/swagger-ui/index.html`
+    -   API disponível em: `http://localhost:8080`
+    -   Documentação Swagger UI: `http://localhost:8080/swagger-ui/index.html`
 
 ---
 
@@ -178,7 +155,6 @@ A seguir, exemplos de JSON para os principais endpoints de criação (`POST`). V
   "email": "luiz.silva@example.com",
   "role": "ADMIN"
 }
-```
 
 **Exemplo JSON para `POST /auth/login`**
 ```json
