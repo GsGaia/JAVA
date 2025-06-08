@@ -43,9 +43,7 @@
 
 ## 🌍 Visão Geral
 
-O **Projeto Gaia** é uma solução de software desenvolvida como parte da Global Solution da FIAP. A plataforma é uma API RESTful projetada para centralizar e gerenciar informações sobre eventos climáticos e geológicos extremos, permitindo o cadastro de locais afetados, acidentes, requisições de ajuda e o gerenciamento de usuários (administradores e voluntários).
-
-O objetivo é fornecer um backend robusto e seguro que possa ser consumido por uma aplicação front-end (web ou mobile) para monitoramento e resposta a desastres em tempo real.
+O **Projeto Gaia** é uma solução de software desenvolvida como parte da Global Solution da FIAP. A ideia é fazer um software que irá ajudar na logistica das equipes de apoio na parte das doações e nas bases de apoio.
 
 ---
 
@@ -110,30 +108,9 @@ A API segue uma arquitetura em camadas para garantir a separação de responsabi
 
 1.  **Clone o repositório:**
     ```bash
-    git clone [https://github.com/seu-usuario/seu-repositorio.git](https://github.com/seu-usuario/seu-repositorio.git)
-    cd seu-repositorio
+    git clone [https://github.com/GsGaia/JAVA.git](https://github.com/GsGaia/JAVA.git)
+    cd JAVA
     ```
-
-2.  **Configure as variáveis de ambiente:**
-    No arquivo `src/main/resources/application.properties`, ajuste as seguintes propriedades para conectar ao seu banco de dados PostgreSQL:
-    ```properties
-    spring.datasource.url=jdbc:postgresql://localhost:5432/seu-banco
-    spring.datasource.username=seu-usuario
-    spring.datasource.password=sua-senha
-    ```
-
-3.  **Compile e execute o projeto com Gradle:**
-    Use o Wrapper do Gradle para executar a aplicação.
-    ```bash
-    # No Linux/macOS
-    ./gradlew bootRun
-
-    # No Windows
-    gradlew.bat bootRun
-    ```
-4.  **Acesse a aplicação:**
-    -   API disponível em: `http://localhost:8080`
-    -   Documentação Swagger UI: `http://localhost:8080/swagger-ui/index.html`
 
 ---
 
@@ -155,7 +132,7 @@ A seguir, exemplos de JSON para os principais endpoints de criação (`POST`). V
   "email": "luiz.silva@example.com",
   "role": "ADMIN"
 }
-
+```
 **Exemplo JSON para `POST /auth/login`**
 ```json
 {
@@ -193,7 +170,7 @@ A seguir, exemplos de JSON para os principais endpoints de criação (`POST`). V
   "city": "São Paulo",
   "startAccident": "2025-06-07",
   "endAccident": "2025-06-08",
-  "statusLocation": "MONITORING",
+  "statusLocation": "BOM",
   "active": true
 }
 ```
@@ -207,8 +184,8 @@ A seguir, exemplos de JSON para os principais endpoints de criação (`POST`). V
 {
   "dateAccidentStart": "2025-06-07",
   "dateAccidentEnd": "2025-06-08",
-  "typeAccident": "FLOODING",
-  "severityAccident": "HIGH",
+  "typeAccident": "ENCHENTE",
+  "severityAccident": "BAIXA",
   "locationId": 1
 }
 ```
@@ -224,7 +201,7 @@ A seguir, exemplos de JSON para os principais endpoints de criação (`POST`). V
   "description": "Precisamos de 100 litros de água potável para o abrigo central.",
   "unit": "LITERS",
   "requestDate": "2025-06-07",
-  "status": "PENDING",
+  "status": "COMPLETA",
   "userId": 1,
   "locationId": 1
 }
