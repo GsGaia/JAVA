@@ -35,10 +35,9 @@
 
 ## 🎥 Demonstração da Solução Completa
 
-- **[Pitch da Solução](https://www.canva.com/design/DAGJWb25iBw/L6xT_3d-WESf2h-R2ODfbA/edit?utm_content=DAGJWb25iBw&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)**: Apresentação visual e conceitual do projeto.
-- **[Deploy da Aplicação](http://191.234.186.183:8080/swagger-ui/index.html)**: Acesse a API em produção e interaja com os endpoints.
-- **[Vídeo Demonstração](link-para-seu-video-aqui)**: Assista a um tour completo pelas funcionalidades da solução.
-
+-   **[Pitch](https://youtu.be/JuaJ-MDg9nc)**
+- **[Deploy da Aplicação](http://191.234.186.183:8080/swagger-ui/index.html)**
+-   **[Video Completo](https://youtu.be/lnIOc2USeCw)**
 ---
 
 ## 🌍 Visão Geral
